@@ -1,24 +1,63 @@
-import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
+import java.io.File;
+import java.io.IOException;
 
-import javax.swing.BorderFactory;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class MainMenu extends JPanel{
 
+	Image background;
+	private final static String BACKGORUND_PATH = "res/panel-fondo.png";
+	private final static String PEDIDOS_PATH = "res/pedidos.png";
+	private final static String STOCK_PATH = "res/stock.png";
+	private final static String TEMP_PATH = "res/temperatura.png";
+	
+	
 	public MainMenu() {
 		this.setLayout(new GridBagLayout());
-		this.setBorder(BorderFactory.createLineBorder(Color.black));
+		loadBackground();
 		createPediosButton();
 		createStockButton();
 		createTempButton();
 		createUsersButton();
 		createStatsButton();
 	}
+	
+	
+
+	private void loadBackground() {
+		try {
+			background = ImageIO.read(new File(BACKGORUND_PATH));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(background, 0, 0, null);
+	}
+
+
+
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+	}
+
+
 
 	private void createPediosButton() {
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -31,6 +70,7 @@ public class MainMenu extends JPanel{
 		constraints.anchor = GridBagConstraints.SOUTHEAST;
 		JButton pedidos = new JButton();
 		pedidos.setPreferredSize(new Dimension(725, 260));
+		pedidos.setIcon(new ImageIcon(PEDIDOS_PATH));
 		this.add(pedidos, constraints);
 	}
 	
@@ -45,6 +85,7 @@ public class MainMenu extends JPanel{
 		constraints.anchor = GridBagConstraints.SOUTHWEST;
 		JButton stock = new JButton();
 		stock.setPreferredSize(new Dimension(325, 260));
+		stock.setIcon(new ImageIcon(STOCK_PATH));
 		this.add(stock, constraints);
 	}
 	
@@ -58,6 +99,7 @@ public class MainMenu extends JPanel{
 		constraints.anchor = GridBagConstraints.NORTHEAST;
 		JButton temp = new JButton();
 		temp.setPreferredSize(new Dimension(325, 260));
+		temp.setIcon(new ImageIcon(TEMP_PATH));
 		this.add(temp, constraints);
 	}
 	

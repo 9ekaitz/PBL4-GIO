@@ -21,7 +21,7 @@ import javax.swing.JPopupMenu;
 
 public class ApplicationFrame extends JFrame{
 	
-	private final static String LOGO_PATH = "res/icon32.png";
+	private final static String LOGO_PATH = "res/GIOicon.png";
 	JPanel mainPanel;
 	JPopupMenu userMenu;
 	
@@ -73,7 +73,7 @@ public class ApplicationFrame extends JFrame{
 		JButton button = new JButton();
 		button.setIcon(new ImageIcon(LOGO_PATH));
 		button.setFocusable(false);
-		button.setBorder(null);
+		button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 5));
 		button.setBorderPainted(false);
 		button.setContentAreaFilled(false);
 		return button;
