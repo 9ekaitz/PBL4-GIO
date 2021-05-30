@@ -1,10 +1,8 @@
+package frame;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.MouseInfo;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -18,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+
+import tmp.MainMenu;
 
 public class ApplicationFrame extends JFrame{
 	
@@ -49,7 +49,7 @@ public class ApplicationFrame extends JFrame{
 		userMenu.add(show);
 		this.add(userMenu);
 		mainPanel.add(subPanel, BorderLayout.NORTH);
-		mainPanel.add(new MainMenu(), BorderLayout.CENTER);
+		mainPanel.add(new MainMenu(this), BorderLayout.CENTER);
 		return mainPanel;
 	}
 	
@@ -79,7 +79,7 @@ public class ApplicationFrame extends JFrame{
 		return button;
 	}
 
-	public void setPanel(JPanel panel) {
+	public void changePanel(JPanel panel) {
 		BorderLayout layout = (BorderLayout) mainPanel.getLayout();
 		mainPanel.remove(layout.getLayoutComponent(BorderLayout.CENTER));
 		mainPanel.add(panel, BorderLayout.CENTER);

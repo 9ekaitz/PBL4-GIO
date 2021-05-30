@@ -1,3 +1,4 @@
+package tmp;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -12,16 +13,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import controller.MenuController;
+import frame.ApplicationFrame;
+
 public class MainMenu extends JPanel{
 
-	Image background;
 	private final static String BACKGORUND_PATH = "res/panel-fondo.png";
-	private final static String PEDIDOS_PATH = "res/pedidos.png";
+	private final static String PEDIDOS_PATH = "res/pedidos1.png";
+	private final static String PEDIDOS_ROLL_PATH = "res/pedidos-roll.png";
 	private final static String STOCK_PATH = "res/stock.png";
 	private final static String TEMP_PATH = "res/temperatura.png";
 	
+	ApplicationFrame frame;
+	Image background;
+	MenuController controller;
 	
-	public MainMenu() {
+	public MainMenu(ApplicationFrame frame) {
+		this.controller = new MenuController(frame);
 		this.setLayout(new GridBagLayout());
 		loadBackground();
 		createPediosButton();
@@ -68,9 +76,14 @@ public class MainMenu extends JPanel{
 		constraints.gridy = 0;
 		constraints.gridwidth = 2;
 		constraints.anchor = GridBagConstraints.SOUTHEAST;
+		
 		JButton pedidos = new JButton();
 		pedidos.setPreferredSize(new Dimension(725, 260));
 		pedidos.setIcon(new ImageIcon(PEDIDOS_PATH));
+		pedidos.setRolloverIcon(new ImageIcon(PEDIDOS_ROLL_PATH));
+		pedidos.setBorder(null);
+		pedidos.setActionCommand("screen-stock");
+		pedidos.addActionListener(controller);
 		this.add(pedidos, constraints);
 	}
 	
