@@ -21,7 +21,8 @@ public class MainMenu extends JPanel{
 	private final static String BACKGORUND_PATH = "res/panel-fondo.png";
 	private final static String PEDIDOS_PATH = "res/pedidos1.png";
 	private final static String PEDIDOS_ROLL_PATH = "res/pedidos-roll.png";
-	private final static String STOCK_PATH = "res/stock.png";
+	private final static String STOCK_PATH = "res/stock1.png";
+	private final static String STOCK_ROLL_PATH = "res/stock-roll.png";
 	private final static String TEMP_PATH = "res/temperatura.png";
 	
 	ApplicationFrame frame;
@@ -82,7 +83,6 @@ public class MainMenu extends JPanel{
 		pedidos.setIcon(new ImageIcon(PEDIDOS_PATH));
 		pedidos.setRolloverIcon(new ImageIcon(PEDIDOS_ROLL_PATH));
 		pedidos.setBorder(null);
-		pedidos.setActionCommand("screen-stock");
 		pedidos.addActionListener(controller);
 		this.add(pedidos, constraints);
 	}
@@ -99,6 +99,10 @@ public class MainMenu extends JPanel{
 		JButton stock = new JButton();
 		stock.setPreferredSize(new Dimension(325, 260));
 		stock.setIcon(new ImageIcon(STOCK_PATH));
+		stock.setRolloverIcon(new ImageIcon(STOCK_ROLL_PATH));
+		stock.setBorder(null);
+		stock.setActionCommand("screen-stock");
+		stock.addActionListener(controller);
 		this.add(stock, constraints);
 	}
 	

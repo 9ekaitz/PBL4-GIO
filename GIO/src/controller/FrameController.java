@@ -3,25 +3,23 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 import frame.ApplicationFrame;
-import tmp.StockView;
+import tmp.MainMenu;
 
-public class MenuController implements ActionListener{
+public class FrameController implements ActionListener{
 
 	ApplicationFrame frame;
 	
-	public MenuController(ApplicationFrame frame) {
-		this.frame = frame;
+	public FrameController(ApplicationFrame applicationFrame) {
+		this.frame = applicationFrame;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case "screen-stock":
-			frame.changePanel(new StockView());
+		case "exit-menu":
+			frame.changePanel(new MainMenu(frame));
 			break;
-
 		default:
 			break;
 		}

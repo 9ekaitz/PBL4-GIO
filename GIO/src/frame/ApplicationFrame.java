@@ -17,16 +17,21 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
+import connector.DBConnector;
+import controller.FrameController;
 import tmp.MainMenu;
 
 public class ApplicationFrame extends JFrame{
 	
 	private final static String LOGO_PATH = "res/GIOicon.png";
+	FrameController controller;
 	JPanel mainPanel;
 	JPopupMenu userMenu;
 	
 	public ApplicationFrame() {
 		super("GIO");
+		DBConnector.openConnectionToDB();
+		controller = new FrameController(this);
 		this.setSize(new Dimension(1280,720));
 		this.setContentPane(createAppPanel());
 		this.setLocationRelativeTo(null);
@@ -76,6 +81,8 @@ public class ApplicationFrame extends JFrame{
 		button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 5));
 		button.setBorderPainted(false);
 		button.setContentAreaFilled(false);
+		button.setActionCommand("exit-menu");
+		button.addActionListener(controller);
 		return button;
 	}
 
