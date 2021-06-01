@@ -20,15 +20,16 @@ import controller.StockController;
 import model.Material;
 import model.MaterialDAOImpl;
 import renders.MaterialRenderer;
+import tmp.CustomJList;
 
 public class StockView extends JPanel {
 
 	private static final String ADD_PATH_STRING = "res/add.png";
 	
-	JList<Material> list;
-	JTextField searchBar;
-	MaterialDAOImpl model;
-	StockController controller;
+	private JList<Material> list;
+	private JTextField searchBar;
+	private MaterialDAOImpl model;
+	private StockController controller;
 
 	public StockView() {
 		this.setLayout(new BorderLayout());
@@ -41,9 +42,10 @@ public class StockView extends JPanel {
 	private void createMaterialView() {
 		JScrollPane panel = new CustomScrollPanel(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		list = new JList<>();
+		list = new CustomJList<>();
 		list.setModel(model);
 		list.setCellRenderer(new MaterialRenderer());
+		list.setOpaque(false);
 		panel.setViewportView(list);
 		this.add(panel, BorderLayout.CENTER);
 	}

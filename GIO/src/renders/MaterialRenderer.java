@@ -37,7 +37,7 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 		JLabel image = new JLabel();
 		image.setIcon(value.getIcon());
 		leftPanel.add(image, BorderLayout.CENTER);
-
+		panel.setOpaque(false);
 		JLabel name = new JLabel(value.getName(), JLabel.CENTER);
 		name.setFont(new Font("Arial", Font.PLAIN, 40)); // Para poder usar oliciy hace falta tenerla instalada en el
 															// sistema, en el instalador del programa deberia instalarse
@@ -45,25 +45,29 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 
 		panel.add(leftPanel, BorderLayout.WEST);
 		panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10),
-				BorderFactory.createLineBorder(Color.black)));
+				BorderFactory.createLineBorder(Color.red)));
 
 		JPanel rightPanel = new JPanel(new GridLayout(1, 3, 10, 0));
 		rightPanel.add(createBoxView(value.getId(), 5, KG_5));
+		rightPanel.add(createBoxView(value.getId(), 10, KG_10));
+		rightPanel.add(createBoxView(value.getId(), 15	, KG_15));
+		panel.add(rightPanel, BorderLayout.CENTER);
 
 		return panel;
 	}
 
 	private static Component createBoxView(String lehengaiaId, int motaId, String path) {
 		JPanel panel = new JPanel(new BorderLayout());
-		JLabel image = new JLabel();
-		image.setIcon(new ImageIcon("res/" + path));
+		JLabel image = new JLabel(new ImageIcon("res/" + path), JLabel.CENTER);
+		JLabel count = null;
 		panel.add(image, BorderLayout.CENTER);
-		JLabel count = new JLabel();
+		
 		ResultSet rs = DBConnector.executeQuery("SELECT COUNT(kutxaId) AS \"count\" FROM kutxa WHERE motaId = " + motaId
 				+ " AND lehengaiaId = \"" + lehengaiaId + "\"");
 		try {
 			while (rs.next()) {
-				count.setText(String.valueOf(rs.getInt("count")));
+				count = new JLabel("Cantidad: "+String.valueOf(rs.getInt("count")), JLabel.CENTER);
+				count.setFont(new Font("Aral", Font.PLAIN, 24));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
