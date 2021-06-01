@@ -19,7 +19,9 @@ import javax.swing.JPopupMenu;
 
 import connector.DBConnector;
 import controller.FrameController;
-import tmp.MainMenu;
+import gio.gfx.ResourceHandler;
+import screens.CustomPanel;
+import screens.MainMenu;
 
 public class ApplicationFrame extends JFrame{
 	
@@ -33,6 +35,7 @@ public class ApplicationFrame extends JFrame{
 		DBConnector.openConnectionToDB();
 		controller = new FrameController(this);
 		this.setSize(new Dimension(1280,720));
+		this.setExtendedState(MAXIMIZED_BOTH);
 		this.setContentPane(createAppPanel());
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -41,7 +44,7 @@ public class ApplicationFrame extends JFrame{
 	
 	private Container createAppPanel() {
 		mainPanel = new JPanel(new BorderLayout());
-		JPanel subPanel = new JPanel();
+		JPanel subPanel = new CustomPanel(ResourceHandler.getTopBar());
 		BoxLayout b = new BoxLayout(subPanel, BoxLayout.X_AXIS);
 		subPanel.setLayout(b);
 		subPanel.add(createLogoButton());

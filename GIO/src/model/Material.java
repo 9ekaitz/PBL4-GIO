@@ -4,10 +4,11 @@ import javax.swing.ImageIcon;
 
 public class Material {
 
-	private String name;
+	private String name, id;
 	private ImageIcon img;
 
-	public Material(String name, String path) {
+	public Material(String id, String name, String path) {
+		this.id = id;
 		this.name = name;
 		this.img = new ImageIcon(path);
 	}
@@ -23,5 +24,9 @@ public class Material {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public String getId() {
+		return id;
 	}
 }

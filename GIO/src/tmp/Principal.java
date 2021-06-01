@@ -2,6 +2,7 @@ package tmp;
 import java.awt.Font;
 
 import frame.ApplicationFrame;
+import gio.gfx.ResourceHandler;
 
 public class Principal {
 
@@ -18,6 +19,7 @@ public class Principal {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		ResourceHandler.initGFXRes();
 		ApplicationFrame p = new ApplicationFrame();
 //		p.setPanel();
 	}

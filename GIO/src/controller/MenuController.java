@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 
 import frame.ApplicationFrame;
-import tmp.StockView;
+import screens.StockView;
 
 public class MenuController implements ActionListener{
 
