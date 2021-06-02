@@ -13,20 +13,20 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import model.ListaTrabajadores;
+import model.PersonalDAOImpl;
 import model.Trabajador;
 import renders.RendererPersonal;
 
 
 public class Pantalla extends JPanel{
 	
-	ListaTrabajadores listaTrabajadores;
+	PersonalDAOImpl listaTrabajadores;
 	JList<Trabajador>jlistTrabajadores;
 	RendererPersonal renderer;
 
 	public Pantalla() {
 		this.setLayout(new BorderLayout(0, 20));
-		this.listaTrabajadores = new ListaTrabajadores();
+		this.listaTrabajadores = new PersonalDAOImpl();
 		this.add(crearPanelBoton(),BorderLayout.NORTH);
 		this.add(crearPanelLista(),BorderLayout.CENTER);
 	}

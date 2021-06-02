@@ -3,17 +3,23 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaTrabajadores {
+public class PersonalDAOImpl implements PersonalDAO{
 	
 	List<Trabajador>listaPersonal;
 	
-	public ListaTrabajadores() {
+	public PersonalDAOImpl() {
 		this.listaPersonal = new ArrayList<>();
 		inicializar();
 	}
 
+	@Override
 	public void add(Trabajador trabajador) {
-		listaPersonal.add(trabajador);
+		listaPersonal.add(trabajador);		
+	}
+
+	@Override
+	public Trabajador[] getTrabajadores() {
+		return listaPersonal.toArray(new Trabajador[0]);
 	}
 	
 	public void inicializar() {
@@ -21,8 +27,4 @@ public class ListaTrabajadores {
 		listaPersonal.add(new Trabajador("Que tal","hola","75778514L","jefe"));
 	}
 	
-	public Trabajador[] getTrabajadores() {
-		return listaPersonal.toArray(new Trabajador[0]);
-	}
-
 }
