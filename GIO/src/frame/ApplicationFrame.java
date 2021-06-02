@@ -25,7 +25,7 @@ import screens.MainMenu;
 
 public class ApplicationFrame extends JFrame{
 	
-	private final static String LOGO_PATH = "res/GIOicon.png";
+	private final static String LOGO_PATH = "GIOicon.png";
 	FrameController controller;
 	JPanel mainPanel;
 	JPopupMenu userMenu;
