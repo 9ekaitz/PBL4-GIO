@@ -3,7 +3,6 @@ CREATE DATABASE biltegia;
 
 USE biltegia;
 
-#FOREIGN EGINDA
 CREATE TABLE langilea (
 	nan				CHAR(9),
 	izena			VARCHAR(16) NOT NULL,
@@ -15,7 +14,6 @@ CREATE TABLE langilea (
 	CONSTRAINT PK_LANGILEA PRIMARY KEY (nan)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE hornitzailea (
 	cif			CHAR(9),
 	izena		VARCHAR(16) NOT NULL,
@@ -25,7 +23,6 @@ CREATE TABLE hornitzailea (
 	CONSTRAINT PK_HORNITZAILEA PRIMARY KEY (cif)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE bezeroa (
 	idBezeroa	INT AUTO_INCREMENT,
 	cif			CHAR(9),
@@ -35,9 +32,8 @@ CREATE TABLE bezeroa (
 	CONSTRAINT PK_BEZEROA PRIMARY KEY (idBezeroa)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE kutxa_mota (
-	motaId			TINYINT UNSIGNED AUTO_INCREMENT,
+	motaId			TINYINT UNSIGNED,
 	lehengaiaId		CHAR(2),
 	deskribapena	VARCHAR(64) NOT NULL,
 	prezioa			DECIMAL(4,2)NOT NULL,
@@ -46,7 +42,6 @@ CREATE TABLE kutxa_mota (
 	CONSTRAINT PK_KUTXA_MOTA PRIMARY KEY (motaId, lehengaiaId)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE eskaera_hornitzailea (
 	eskaeraId		SMALLINT UNSIGNED AUTO_INCREMENT,
 	jasotze_data	DATE NOT NULL,
@@ -56,15 +51,14 @@ CREATE TABLE eskaera_hornitzailea (
 	CONSTRAINT PK_ESKAERA_HORNITZAILE PRIMARY KEY (eskaeraId)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE lehengaia (
 	lehengaiaId		CHAR(2),
 	deskribapena	VARCHAR(64) NOT NULL,
+    img             MEDIUMBLOB,
 	
 	CONSTRAINT PK_LEHENGAIA PRIMARY KEY (lehengaiaId)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE intzidentzia (
 	sortze_data		DATE,
 	sortze_ordua	TIME,
@@ -73,7 +67,6 @@ CREATE TABLE intzidentzia (
 	CONSTRAINT PK_INTZIDENTZIA PRIMARY KEY (sortze_data,sortze_ordua)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE tenperatura (
 	sortze_ordua	TIME,
 	tenperatura		DECIMAL(4,2) NOT NULL,
@@ -81,7 +74,6 @@ CREATE TABLE tenperatura (
 	CONSTRAINT PK_TENPERATURA PRIMARY KEY (sortze_ordua)
 ) ENGINE = Memory;
 
-#FOREIGN EGINDA
 CREATE TABLE tenperatura_BatazBesteko (
 	sortze_data		DATE,
 	sortze_ordua	TIME,
@@ -90,7 +82,6 @@ CREATE TABLE tenperatura_BatazBesteko (
 	CONSTRAINT PK_TENPERATURA_BATAZBESTEKO PRIMARY KEY (sortze_data,sortze_ordua)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE eskaera_onartzeko (
 	eskaeraId		INT UNSIGNED AUTO_INCREMENT,
 	sortze_data		DATE NOT NULL,
@@ -100,7 +91,6 @@ CREATE TABLE eskaera_onartzeko (
 	CONSTRAINT PK_ESKAERA_ONARTZEKO PRIMARY KEY (eskaeraId)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE eskaera_onartuta (
 	eskaeraId		INT UNSIGNED,
 	sortze_data		DATE NOT NULL,
@@ -111,7 +101,6 @@ CREATE TABLE eskaera_onartuta (
 	CONSTRAINT PK_ESKAERA_ONARTUTA PRIMARY KEY (eskaeraId)
 );
 
-#FOREIGN KEY
 CREATE TABLE lerroak_eskaera_hornitzaile (
 	eskaeraId		SMALLINT UNSIGNED,
 	lehengaiaId		CHAR(2),
@@ -121,7 +110,6 @@ CREATE TABLE lerroak_eskaera_hornitzaile (
 	CONSTRAINT PK_LERROAK_ESKAERA_HORNITZAILE PRIMARY KEY (eskaeraId,lehengaiaId)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE lerroak_onartuta (
 	motaId			TINYINT UNSIGNED,
 	lehengaiaId		CHAR(2),
@@ -132,7 +120,6 @@ CREATE TABLE lerroak_onartuta (
 	CONSTRAINT PK_LERROAK_ONARTUTA PRIMARY KEY (motaId, eskaeraId, lehengaiaId)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE lerroak_onartzeko (
 	motaId			TINYINT UNSIGNED,
 	lehengaiaId		CHAR(2),
@@ -143,7 +130,6 @@ CREATE TABLE lerroak_onartzeko (
 	CONSTRAINT PK_LERROAK_ONARTZEKO PRIMARY KEY (motaId, eskaeraId, lehengaiaId)
 );
 
-#FOREIGN EGINDA
 CREATE TABLE kutxa (
 	kutxaId				INT UNSIGNED AUTO_INCREMENT,
 	motaId				TINYINT UNSIGNED,
@@ -153,8 +139,6 @@ CREATE TABLE kutxa (
 	CONSTRAINT PK_KUTXA PRIMARY KEY (kutxaId, motaId, lehengaiaId)
 );
 
-
-#FOREIGN EGINDA
 CREATE TABLE kutxa_salduta (
 	kutxaId				INT UNSIGNED,
 	motaId				TINYINT UNSIGNED,
