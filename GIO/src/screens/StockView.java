@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.ListModel;
 
 import controller.StockController;
+import frame.ApplicationFrame;
 import model.Material;
 import model.MaterialDAOImpl;
 import renders.MaterialRenderer;
@@ -30,11 +31,12 @@ public class StockView extends JPanel {
 	private JTextField searchBar;
 	private MaterialDAOImpl model;
 	private StockController controller;
+	private ApplicationFrame frame;
 
-	public StockView() {
+	public StockView(ApplicationFrame frame) {
 		this.setLayout(new BorderLayout());
 		model = new MaterialDAOImpl();
-		controller = new StockController(this, model);
+		controller = new StockController(this, model, frame);
 		createTopBar();
 		createMaterialView();
 	}
@@ -44,7 +46,7 @@ public class StockView extends JPanel {
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		list = new CustomJList<>();
 		list.setModel(model);
-		list.setCellRenderer(new MaterialRenderer());
+		list.setCellRenderer(new MaterialRenderer(controller));
 		list.setOpaque(false);
 		panel.setViewportView(list);
 		this.add(panel, BorderLayout.CENTER);

@@ -47,12 +47,12 @@ public class Pantalla extends JPanel{
 		BoxLayout b = new BoxLayout(bar, BoxLayout.X_AXIS);
 		bar.setLayout(b);
 
-		JButton añadirTrabajador = new JButton("Añadir trabajador");
-		añadirTrabajador.setContentAreaFilled(false);
-		añadirTrabajador.setFocusable(false);
-		añadirTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
+		JButton aÃ±adirTrabajador = new JButton("Aï¿½adir trabajador");
+		aÃ±adirTrabajador.setContentAreaFilled(false);
+		aÃ±adirTrabajador.setFocusable(false);
+		aÃ±adirTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
 				BorderFactory.createLineBorder(Color.black),BorderFactory.createEmptyBorder(5, 5, 5, 5))));
-		bar.add(añadirTrabajador);
+		bar.add(aÃ±adirTrabajador);
 		
 		return bar;
 	}

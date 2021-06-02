@@ -20,7 +20,7 @@ public class MenuController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case "screen-stock":
-			frame.changePanel(new StockView());
+			frame.changePanel(new StockView(frame));
 			break;
 		case "screen-users":
 			frame.changePanel(new Pantalla());

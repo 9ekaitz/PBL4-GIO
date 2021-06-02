@@ -3,6 +3,7 @@ package renders;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.sql.ResultSet;
@@ -10,6 +11,7 @@ import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -19,6 +21,7 @@ import com.mysql.cj.protocol.ValueDecoder;
 import com.mysql.cj.xdevapi.Schema.Validation;
 
 import connector.DBConnector;
+import controller.StockController;
 import gio.gfx.ResourceHandler;
 import model.Material;
 import screens.CustomPanel;
@@ -28,6 +31,12 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 	private final static String KG_5 = "box5.png";
 	private final static String KG_10 = "box10.png";
 	private final static String KG_15 = "box15.png";
+	
+	StockController controller;
+	
+	public MaterialRenderer(StockController controller) {
+		this.controller = controller;
+	}
 
 	@Override
 	public Component getListCellRendererComponent(JList<? extends Material> list, Material value, int index,
@@ -56,10 +65,15 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 		return panel;
 	}
 
-	private static Component createBoxView(String lehengaiaId, int motaId, String path) {
+	private Component createBoxView(String lehengaiaId, int motaId, String path) {
 		JPanel panel = new JPanel(new BorderLayout());
-		JLabel image = new JLabel(new ImageIcon("res/" + path), JLabel.CENTER);
+		JButton image = new JButton(new ImageIcon("res/" + path));
 		JLabel count = null;
+		image.setPreferredSize(new Dimension(256,256));
+//		image.setBorder(null);
+//		image.setContentAreaFilled(false);
+		image.setActionCommand("show-box-"+motaId);
+		image.addActionListener(controller);
 		panel.add(image, BorderLayout.CENTER);
 		
 		ResultSet rs = DBConnector.executeQuery("SELECT COUNT(kutxaId) AS \"count\" FROM kutxa WHERE motaId = " + motaId
