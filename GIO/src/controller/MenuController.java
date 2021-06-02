@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import frame.ApplicationFrame;
 import screens.StockView;
+import screens.Pantalla;
 
 public class MenuController implements ActionListener{
 
@@ -20,6 +21,9 @@ public class MenuController implements ActionListener{
 		switch (e.getActionCommand()) {
 		case "screen-stock":
 			frame.changePanel(new StockView());
+			break;
+		case "screen-users":
+			frame.changePanel(new Pantalla());
 			break;
 
 		default:

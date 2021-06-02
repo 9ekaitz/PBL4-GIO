@@ -123,6 +123,8 @@ public class MainMenu extends CustomPanel{
 		constraints.gridy = 1;
 		constraints.anchor = GridBagConstraints.NORTHWEST;
 		JButton users = new JButton();
+		users.setActionCommand("screen-users");
+		users.addActionListener(controller);
 		users.setPreferredSize(new Dimension(550, 400));
 		this.add(users, constraints);
 	}
