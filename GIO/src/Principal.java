@@ -64,7 +64,7 @@ public class Principal implements SerialPortEventListener{
 		//System.out.println(arg0.getEventValue());
 		if(arg0.isRXCHAR()) {
 			try {
-				System.out.println(port.readBytes()[0]);
+				System.out.println(port.readString());
 			} catch (SerialPortException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
