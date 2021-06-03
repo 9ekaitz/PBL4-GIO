@@ -22,7 +22,9 @@ public class CustomPanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(bg, 0, 0, null);
+		if (bg != null) {
+			g.drawImage(bg, 0, 0, null);
+		}
 	}
 
 }

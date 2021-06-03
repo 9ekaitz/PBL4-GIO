@@ -19,13 +19,14 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import controlador.ControladorLogin;
+import gio.gfx.ResourceHandler;
 import modelo.Recurso;
+import screens.CustomPanel;
 
-public class PantallaLogin extends JPanel{
+public class PantallaLogin extends CustomPanel{
 
 	private static final long serialVersionUID = 1L;
-	private final static String FONDO ="login-background.png";
-	
+
 	Vista vista;	
 	Font fuenteLogin;
 	ControladorLogin controladorLogin;
@@ -34,27 +35,18 @@ public class PantallaLogin extends JPanel{
 	
 	public PantallaLogin(Vista vista) {
 		
-		super();
+		super(ResourceHandler.getLoginBackground());
 		this.vista = vista;
-		this.setLayout(new BorderLayout());		
+		this.setLayout(null);		
 		
 		controladorLogin = new ControladorLogin(this.vista, this);
 
-		this.add(crearPanelCentral(), BorderLayout.CENTER);		
+		this.add(crearPanelLogin());		
 		try {
 			fuenteLogin = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Oliciy.ttf")).deriveFont(12f);
 		    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		    ge.registerFont(fuenteLogin);
 		} catch (FontFormatException | IOException e) {e.printStackTrace(); } 
-	}
-
-	private Component crearPanelCentral() {
-		
-		PanelFondo panelCentral = new PanelFondo(new ImageIcon(Recurso.PATH_FONDOS + FONDO));
-		panelCentral.setLayout(null);
-		
-		panelCentral.add(crearPanelLogin());
-		return panelCentral;
 	}
 
 	private Component crearPanelLogin() {

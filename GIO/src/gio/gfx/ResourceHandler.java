@@ -8,9 +8,10 @@ import javax.imageio.ImageIO;
 
 public class ResourceHandler {
 
-	private final static String BACKGORUND_PATH = "res/1080/panel-fondo.png";
-	private final static String TOP_BAR_PATH = "res/1080/topBar.png";
-	public static Image background, topBarBG;
+	private final static String LOGIN_BACKGROUND_PATH = "res/720/backgrounds/login-background.png";
+	private final static String BACKGORUND_PATH = "res/1080/backgrounds/panel-fondo.png";
+	private final static String TOP_BAR_PATH = "res/1080/backgrounds/topBar.png";
+	public static Image background, topBarBG, loginBackground;
 	
 	public static void initGFXRes() {
 		loadResources();
@@ -20,6 +21,7 @@ public class ResourceHandler {
 		try {
 			background = ImageIO.read(new File(BACKGORUND_PATH));
 			topBarBG = ImageIO.read(new File(TOP_BAR_PATH));
+			loginBackground = ImageIO.read(new File(LOGIN_BACKGROUND_PATH));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,5 +34,9 @@ public class ResourceHandler {
 	
 	public static Image getTopBar() {
 		return topBarBG;
+	}
+	
+	public static Image getLoginBackground() {
+		return loginBackground;
 	}
 }

@@ -20,19 +20,22 @@ import javax.swing.JPopupMenu;
 import connector.DBConnector;
 import controller.FrameController;
 import gio.gfx.ResourceHandler;
+import modelo.Personal;
 import screens.CustomPanel;
 import screens.MainMenu;
 
 public class ApplicationFrame extends JFrame{
 	
-	private final static String LOGO_PATH = "res/GIOicon.png";
+	private final static String LOGO_PATH = "res/icons/GIOicon.png";
+	private final static String USER_ICON_PATH= "res/icons/user.png";
 	FrameController controller;
 	JPanel mainPanel;
 	JPopupMenu userMenu;
+	Personal personal;
 	
-	public ApplicationFrame() {
+	public ApplicationFrame(Personal personal) {
 		super("GIO");
-		DBConnector.openConnectionToDB();
+		DBConnector.openConnectionToDB("root", "123456");
 		controller = new FrameController(this);
 		this.setSize(new Dimension(1280,720));
 		this.setExtendedState(MAXIMIZED_BOTH);
@@ -41,6 +44,19 @@ public class ApplicationFrame extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
+	
+	public ApplicationFrame() {
+		super("GIO");
+		DBConnector.openConnectionToDB("root", "123456");
+		controller = new FrameController(this);
+		this.setSize(new Dimension(1280,720));
+		this.setExtendedState(MAXIMIZED_BOTH);
+		this.setContentPane(createAppPanel());
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+	
 	
 	private Container createAppPanel() {
 		mainPanel = new JPanel(new BorderLayout());
@@ -65,7 +81,7 @@ public class ApplicationFrame extends JFrame{
 
 	private Component createUserButton() {
 		JLabel user = new JLabel();
-		user.setIcon(new ImageIcon("res/user.png"));
+		user.setIcon(new ImageIcon(USER_ICON_PATH));
 		user.setFocusable(false);
 		user.setBorder(null);
 		user.addMouseListener(new MouseAdapter() {

@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import connector.DBConnector;
+import gio.gfx.ResourceHandler;
 import modelo.Personal;
 
 public class Vista extends JFrame{
@@ -16,14 +18,14 @@ public class Vista extends JFrame{
 	
 	
 	public Vista() {
-		
+		ResourceHandler.initGFXRes();
+		DBConnector.openLoginConnectionToDB();
 		this.setTitle("GIO");
 		this.setSize(1200, 720);
 		this.setLocationRelativeTo(null);;
-		
+	
 		/*INICIO Cargar pantallas */
-		this.cargarPantallaLogin();
-		
+		this.setContentPane(new PantallaLogin(this));
 		
 		/*FIN Cargar pantallas */
 		
@@ -39,36 +41,6 @@ public class Vista extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	
-	/*INICIO Cargar contenido pantallas*/
-	
-	
-	public void cargarPantallaLogin()
-	{
-		
-		PantallaLogin pantallaLogin = new PantallaLogin(this);
-		this.getContentPane().removeAll();
-		this.getContentPane().add(pantallaLogin);
-		this.validate();
-		this.repaint();
-		
-	}
-	
-	
-	public void cargarPantallaBorrador()
-	{		
-		PantallaBorrador pantallaBorrador = new PantallaBorrador(this);
-		this.getContentPane().removeAll();
-		this.getContentPane().add(pantallaBorrador);
-		this.validate();
-		this.repaint();
-		
-	}
-	
-	/*FIN Cargar contenido pantallas*/
-	
-	
-	
 	
 	/*INICIO GET & SETT variables*/
 	
