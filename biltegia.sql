@@ -164,7 +164,8 @@ ALTER TABLE kutxa_mota
 ADD CONSTRAINT FK_LEHENGAIA_KUTXA_MOTA FOREIGN KEY (lehengaiaId) REFERENCES lehengaia (lehengaiaId);
 
 ALTER TABLE kutxa
-ADD CONSTRAINT FK_KUTXA_MOTA_KUTXA FOREIGN KEY (motaId, lehengaiaId) REFERENCES kutxa_mota (motaId, lehengaiaId);
+ADD CONSTRAINT FK_KUTXA_MOTA_KUTXA FOREIGN KEY (motaId, lehengaiaId) REFERENCES kutxa_mota (motaId, lehengaiaId),
+ADD CONSTRAINT FK_KUTXA_ESKAERA_HORNITZAILEA FOREIGN KEY (jatorrizko_eskaera) REFERENCES eskaera_hornitzailea (eskaeraId);
 
 ALTER TABLE kutxa_salduta
 ADD CONSTRAINT FK_KUTXA_MOTA_KUTXA_SALDUTA FOREIGN KEY (motaId, lehengaiaId) REFERENCES kutxa_mota (motaId, lehengaiaId),
