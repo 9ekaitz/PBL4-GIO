@@ -104,7 +104,7 @@ CREATE TABLE eskaera_onartuta (
 CREATE TABLE lerroak_eskaera_hornitzaile (
 	eskaeraId		SMALLINT UNSIGNED,
 	lehengaiaId		CHAR(2),
-	pezioa			DECIMAL(4,2) NOT NULL,
+	prezioa			DECIMAL(4,2) NOT NULL,
 	pisua			DECIMAL(5,2) NOT NULL,
 	
 	CONSTRAINT PK_LERROAK_ESKAERA_HORNITZAILE PRIMARY KEY (eskaeraId,lehengaiaId)
@@ -114,7 +114,7 @@ CREATE TABLE lerroak_onartuta (
 	motaId			TINYINT UNSIGNED,
 	lehengaiaId		CHAR(2),
 	eskaeraId		INT UNSIGNED,
-	pezioa			DECIMAL(4,2) NOT NULL,
+	prezioa			DECIMAL(4,2) NOT NULL,
 	kopurua			TINYINT UNSIGNED NOT NULL,
 	
 	CONSTRAINT PK_LERROAK_ONARTUTA PRIMARY KEY (motaId, eskaeraId, lehengaiaId)
@@ -124,7 +124,7 @@ CREATE TABLE lerroak_onartzeko (
 	motaId			TINYINT UNSIGNED,
 	lehengaiaId		CHAR(2),
 	eskaeraId		INT UNSIGNED,
-	pezioa			DECIMAL(4,2) NOT NULL,
+	prezioa			DECIMAL(4,2) NOT NULL,
 	kopurua			TINYINT UNSIGNED NOT NULL,
 	
 	CONSTRAINT PK_LERROAK_ONARTZEKO PRIMARY KEY (motaId, eskaeraId, lehengaiaId)
@@ -164,7 +164,8 @@ ALTER TABLE kutxa_mota
 ADD CONSTRAINT FK_LEHENGAIA_KUTXA_MOTA FOREIGN KEY (lehengaiaId) REFERENCES lehengaia (lehengaiaId);
 
 ALTER TABLE kutxa
-ADD CONSTRAINT FK_KUTXA_MOTA_KUTXA FOREIGN KEY (motaId, lehengaiaId) REFERENCES kutxa_mota (motaId, lehengaiaId);
+ADD CONSTRAINT FK_KUTXA_MOTA_KUTXA FOREIGN KEY (motaId, lehengaiaId) REFERENCES kutxa_mota (motaId, lehengaiaId),
+ADD CONSTRAINT FK_KUTXA_ESKAERA_HORNITZAILEA FOREIGN KEY (jatorrizko_eskaera) REFERENCES eskaera_hornitzailea (eskaeraId);
 
 ALTER TABLE kutxa_salduta
 ADD CONSTRAINT FK_KUTXA_MOTA_KUTXA_SALDUTA FOREIGN KEY (motaId, lehengaiaId) REFERENCES kutxa_mota (motaId, lehengaiaId),
