@@ -9,16 +9,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.print.DocFlavor.CHAR_ARRAY;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import frame.ApplicationFrame;
 import model.Material;
 import model.MaterialDAO;
 import model.MaterialDAOFiltered;
 import model.MaterialDAOImpl;
+import screens.DetailsPanel;
 import screens.StockView;
+import tmp.CustomJList;
 
-public class StockController implements KeyListener, ActionListener {
+public class StockController implements KeyListener, ActionListener, ListSelectionListener {
 
 	StockView view;
 	MaterialDAO model;
@@ -27,6 +32,7 @@ public class StockController implements KeyListener, ActionListener {
 	public StockController(StockView stockView, MaterialDAOImpl model, ApplicationFrame frame) {
 		this.view = stockView;
 		this.model = model;
+		this.frame = frame;
 	}
 
 	@Override
@@ -71,6 +77,16 @@ public class StockController implements KeyListener, ActionListener {
 
 		default:
 			break;
+		}
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		if (e.getValueIsAdjusting()) return;
+		if (e.getSource() instanceof JList<?>) {
+			JList<Material> lst = (JList<Material>) e.getSource();
+			Material m = lst.getSelectedValue();
+			frame.changePanel(new DetailsPanel(m));
 		}
 	}
 
