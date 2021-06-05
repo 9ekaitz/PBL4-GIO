@@ -50,15 +50,15 @@ public class Pantalla extends JPanel implements ActionListener,PropertyChangeLis
 		BoxLayout b = new BoxLayout(bar, BoxLayout.X_AXIS);
 		bar.setLayout(b);
 
-		JButton añadirTrabajador = new JButton("Añadir trabajador");
-		añadirTrabajador.setContentAreaFilled(false);
-		añadirTrabajador.setFocusable(false);
-		añadirTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
+		JButton aÃ±adirTrabajador = new JButton("AÃ±adir trabajador");
+		aÃ±adirTrabajador.setContentAreaFilled(false);
+		aÃ±adirTrabajador.setFocusable(false);
+		aÃ±adirTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
 				BorderFactory.createLineBorder(Color.black),BorderFactory.createEmptyBorder(5, 5, 5, 5))));
 		
-		añadirTrabajador.setActionCommand("añadir");
-		añadirTrabajador.addActionListener(this);
-		bar.add(añadirTrabajador);
+		aÃ±adirTrabajador.setActionCommand("aÃ±adir");
+		aÃ±adirTrabajador.addActionListener(this);
+		bar.add(aÃ±adirTrabajador);
 		
 		return bar;
 	}
@@ -66,7 +66,7 @@ public class Pantalla extends JPanel implements ActionListener,PropertyChangeLis
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
-		case "añadir":
+		case "aÃ±adir":
 			DialogoNuevoUsuario dialogo=new DialogoNuevoUsuario(Pantalla.this, "Nuevo Usuario", true);
 			Trabajador trabajador=dialogo.getTrabajador();
 			if(trabajador!=null)listaTrabajadores.add(trabajador);

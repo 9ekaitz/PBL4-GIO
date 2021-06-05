@@ -22,7 +22,7 @@ import model.Trabajador;
 
 public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	
-	JTextField nombre,apellido,dni,puesto,usuario,contraseña;
+	JTextField nombre,apellido,dni,puesto,usuario,contraseÃ±a;
 	Trabajador newTrabajador = null;
 	PropertyChangeListener lst;
 	
@@ -53,13 +53,13 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		dni = new JTextField (80);
 		puesto = new JTextField (80);
 		usuario = new JTextField (80);
-		contraseña = new JTextField (80);
+		contraseÃ±a = new JTextField (80);
 		panel.add(crearTextField(nombre,"Nombre:         "));
 		panel.add(crearTextField(apellido,"Apellidos:       "));
 		panel.add(crearTextField(dni,"DNI:                  "));
 		panel.add(crearTextField(puesto,"Puesto:           "));
 		panel.add(crearTextField(usuario,"Usuario:          "));
-		panel.add(crearTextField(contraseña,"Contraseña:  "));
+		panel.add(crearTextField(contraseÃ±a,"ContraseÃ±a:  "));
 
 
 		return panel;
