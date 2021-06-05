@@ -67,13 +67,10 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 
 	private Component createBoxView(String lehengaiaId, int motaId, String path) {
 		JPanel panel = new JPanel(new BorderLayout());
-		JButton image = new JButton(new ImageIcon("res/" + path));
+		JLabel image = new JLabel(new ImageIcon("res/" + path));
 		JLabel count = null;
 		image.setPreferredSize(new Dimension(256,256));
-//		image.setBorder(null);
-//		image.setContentAreaFilled(false);
-		image.setActionCommand("show-box-"+motaId);
-		image.addActionListener(controller);
+		image.setBorder(null);
 		panel.add(image, BorderLayout.CENTER);
 		
 		ResultSet rs = DBConnector.executeQuery("SELECT COUNT(kutxaId) AS \"count\" FROM kutxa WHERE motaId = " + motaId

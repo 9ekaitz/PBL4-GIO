@@ -2,32 +2,35 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.print.DocFlavor.CHAR_ARRAY;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import frame.ApplicationFrame;
+import model.Box;
+import model.BoxDAOImpl;
 import model.Material;
 import model.MaterialDAO;
 import model.MaterialDAOFiltered;
 import model.MaterialDAOImpl;
 import screens.DetailsPanel;
 import screens.StockView;
-import tmp.CustomJList;
 
-public class StockController implements KeyListener, ActionListener, ListSelectionListener {
+public class StockController implements KeyListener, ActionListener, ListSelectionListener, ItemListener {
 
 	StockView view;
 	MaterialDAO model;
 	ApplicationFrame frame;
+	DetailsPanel boxView;
 
 	public StockController(StockView stockView, MaterialDAOImpl model, ApplicationFrame frame) {
 		this.view = stockView;
@@ -86,8 +89,20 @@ public class StockController implements KeyListener, ActionListener, ListSelecti
 		if (e.getSource() instanceof JList<?>) {
 			JList<Material> lst = (JList<Material>) e.getSource();
 			Material m = lst.getSelectedValue();
-			frame.changePanel(new DetailsPanel(m));
+			frame.changePanel(new DetailsPanel(m, this));
 		}
+	}
+	
+	public void setBoxView(DetailsPanel view) {
+		boxView = view;
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		List<Box> allLst = boxView.getModel().getAllBoxes();
+		boxView.setModel(new BoxDAOImpl (allLst.stream().filter(b->b.getWeight() == 5 && boxView.is5Checked()
+				|| b.getWeight() == 10 && boxView.is10Checked()
+				|| b.getWeight() == 15 && boxView.is15Checked()).collect(Collectors.toList())));
 	}
 
 }

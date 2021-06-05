@@ -14,7 +14,12 @@ public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 	List<Box> lst;
 	
 	public BoxDAOImpl(Material m) {
-		lst = getAllBoxes(m);
+		lst = fetchBoxes(m);
+		fireContentsChanged(lst, 0, getSize());
+	}
+	
+	public BoxDAOImpl(List<Box> lst) {
+		this.lst = lst;
 		fireContentsChanged(lst, 0, getSize());
 	}
 
@@ -29,7 +34,7 @@ public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 	}
 
 	@Override
-	public List<Box> getAllBoxes(Material m)  {
+	public List<Box> fetchBoxes(Material m)  {
 		List<Box> boxLst = new ArrayList<>();
 		
 		ResultSet rs = DBConnector.executeQuery("SELECT kutxaId, motaId, jatorrizko_eskaera, e.jasotze_data "
@@ -48,5 +53,9 @@ public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 		
 		return boxLst;
 	}
-	
+
+	@Override
+	public List<Box> getAllBoxes() {
+		return lst;
+	}
 }
