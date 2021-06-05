@@ -10,7 +10,7 @@ public  class DBConnector {
 
 	private static final String DB_URL = "jdbc:mysql://localhost/biltegia";
 	private static final String USER = "root";
-	private static final String PASS = "123456";
+	private static final String PASS = "12345678aA@";
 
 	private static Connection connection = null;
 	

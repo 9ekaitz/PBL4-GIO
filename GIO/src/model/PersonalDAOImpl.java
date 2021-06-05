@@ -1,7 +1,11 @@
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import connector.DBConnector;
 
 public class PersonalDAOImpl implements PersonalDAO{
 	
@@ -9,7 +13,7 @@ public class PersonalDAOImpl implements PersonalDAO{
 	
 	public PersonalDAOImpl() {
 		this.listaPersonal = new ArrayList<>();
-		inicializar();
+		recolectarDatos();
 	}
 
 	@Override
@@ -22,9 +26,20 @@ public class PersonalDAOImpl implements PersonalDAO{
 		return listaPersonal.toArray(new Trabajador[0]);
 	}
 	
-	public void inicializar() {
-		listaPersonal.add(new Trabajador("Hola","que tal","75648514M","estibador"));
-		listaPersonal.add(new Trabajador("Que tal","hola","75778514L","jefe"));
+	public void recolectarDatos() {
+		ResultSet datos=DBConnector.executeQuery("SELECT * FROM langilea");
+		try {
+			while(datos.next()) {
+				String dni=datos.getString("nan");
+				String nombre=datos.getString("izena");
+				String apellidos=datos.getString("abizena");
+				String puesto=datos.getString("rol");
+				listaPersonal.add(new Trabajador(nombre, apellidos, dni, puesto));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

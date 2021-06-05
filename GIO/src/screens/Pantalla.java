@@ -4,6 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -18,7 +22,7 @@ import model.Trabajador;
 import renders.RendererPersonal;
 
 
-public class Pantalla extends JPanel{
+public class Pantalla extends JPanel implements ActionListener,PropertyChangeListener{
 	
 	PersonalDAOImpl listaTrabajadores;
 	JList<Trabajador>jlistTrabajadores;
@@ -33,7 +37,6 @@ public class Pantalla extends JPanel{
 
 	private Component crearPanelLista() {
 		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 		jlistTrabajadores=new JList<>();
 		jlistTrabajadores.setListData(listaTrabajadores.getTrabajadores());
 		renderer=new RendererPersonal();
@@ -52,9 +55,29 @@ public class Pantalla extends JPanel{
 		añadirTrabajador.setFocusable(false);
 		añadirTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
 				BorderFactory.createLineBorder(Color.black),BorderFactory.createEmptyBorder(5, 5, 5, 5))));
+		
+		añadirTrabajador.setActionCommand("añadir");
+		añadirTrabajador.addActionListener(this);
 		bar.add(añadirTrabajador);
 		
 		return bar;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		switch(e.getActionCommand()) {
+		case "añadir":
+			DialogoNuevoUsuario dialogo=new DialogoNuevoUsuario(Pantalla.this, "Nuevo Usuario", true);
+			Trabajador trabajador=dialogo.getTrabajador();
+			if(trabajador!=null)listaTrabajadores.add(trabajador);
+			break;
+	}		
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		this.repaint();
+		
 	}
 	
 	
