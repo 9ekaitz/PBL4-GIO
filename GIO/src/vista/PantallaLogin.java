@@ -7,23 +7,26 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import controlador.ControladorLogin;
+import controller.ControladorLogin;
 import gio.gfx.ResourceHandler;
-import modelo.Recurso;
+
 import screens.CustomPanel;
 
-public class PantallaLogin extends CustomPanel{
+public class PantallaLogin extends CustomPanel implements PropertyChangeListener, FocusListener{
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +35,7 @@ public class PantallaLogin extends CustomPanel{
 	ControladorLogin controladorLogin;
 	JTextField usuarioCampo;
 	JPasswordField claveCampo;
+	boolean userFieldState, pwdFieldState;
 	
 	public PantallaLogin(Vista vista) {
 		
@@ -39,6 +43,9 @@ public class PantallaLogin extends CustomPanel{
 		this.vista = vista;
 		this.setLayout(null);		
 		
+		vista.getReceiver().addPropertyChangeListener(this);
+		userFieldState = false;
+		pwdFieldState = false;
 		controladorLogin = new ControladorLogin(this.vista, this);
 
 		this.add(crearPanelLogin());		
@@ -76,6 +83,7 @@ public class PantallaLogin extends CustomPanel{
 		
 		JLabel usuarioLabel = new JLabel("Usuario");
 		usuarioCampo = new JTextField(10);
+		usuarioCampo.addFocusListener(this);
 		
 		usuarioLabel.setForeground(Color.WHITE);
 		usuarioLabel.setFont(new Font("Oliciy", Font.CENTER_BASELINE, 15));
@@ -84,8 +92,10 @@ public class PantallaLogin extends CustomPanel{
 		panel.add(usuarioLabel);
 		panel.add(usuarioCampo);
 		
-		JLabel claveLabel = new JLabel("Contraseï¿½a");
+		JLabel claveLabel = new JLabel("Contraseña");
 		claveCampo = new JPasswordField(10);
+		claveCampo.addFocusListener(this);
+		
 		claveLabel.setForeground(Color.WHITE);
 		claveLabel.setFont(new Font("Oliciy", Font.CENTER_BASELINE, 15));
 		
@@ -124,6 +134,32 @@ public class PantallaLogin extends CustomPanel{
 	
 	public JPasswordField getClaveCampo() {
 		return claveCampo;
+	}
+
+	@Override
+	public void focusGained(FocusEvent e) {
+		if (e.getComponent() == usuarioCampo) userFieldState = true;
+		if(e.getComponent() == claveCampo) pwdFieldState = true;
+	}
+
+	@Override
+	public void focusLost(FocusEvent e) {
+		if (e.getComponent() == usuarioCampo) userFieldState = false;
+		if(e.getComponent() == claveCampo) pwdFieldState = false;
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent arg0) {
+		String property = (String) arg0.getPropertyName();
+		
+		switch (property) {
+		case "Keypad":
+			
+			if (userFieldState) usuarioCampo.setText(usuarioCampo.getText() + vista.getReceiver().getKeypadData());
+			if (pwdFieldState) claveCampo.setText(new String(claveCampo.getPassword()) + vista.getReceiver().getKeypadData());			
+			break;
+		}
+		
 	}
 	
 
