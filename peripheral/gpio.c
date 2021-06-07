@@ -75,6 +75,11 @@ uint32_t GPIO_ReadPin(GPIO_TypeDef * gpio, uint32_t pin)
 	return (gpio->IDR & (0x01<<pin));
 }
 
+void GPIO_toglePin(GPIO_TypeDef* gpiox, uint32_t pinN)
+{
+	gpiox->ODR ^=(1 << pinN);
+}
+
 /*---- Others ----*/
 
 void GPIO_SerialInit()
@@ -133,4 +138,11 @@ void GPIO_TemperaturaInit(void)
 	ENABLE_ClockGpioxEN(GPIO_EN_B);
 	
 	GPIO_SetPinMode(GPIOB,PIN_0, GPIO_Mode_AN);	
+}
+
+void GPIO_VentiladorLedInit(void)
+{
+	ENABLE_ClockGpioxEN(GPIO_EN_F);
+	
+	GPIO_SetPinMode(GPIOF,PIN_6,GPIO_Mode_OUT);
 }

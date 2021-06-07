@@ -162,11 +162,15 @@ void GPIO_SetPinValue(GPIO_TypeDef* gpiox, uint32_t pinN, STATE_Value value);
 uint32_t GPIO_getPinValue(GPIO_TypeDef * gpiox, uint32_t pinN);
 void GPIO_WritePin(GPIO_TypeDef* gpiox, uint32_t pinN, STATE_Value state);
 uint32_t GPIO_ReadPin(GPIO_TypeDef * gpio, uint32_t pin);
+void GPIO_toglePin(GPIO_TypeDef* gpiox, uint32_t pinN);
 	/*Others*/
 void GPIO_SerialInit(void);
 void GPIO_TecladoInit(void);
 void GPIO_BasculaInit(void);
 void GPIO_TemperaturaInit(void);
+void GPIO_VentiladorLedInit(void);
+
+
 
 #endif
 

@@ -16,7 +16,7 @@ int main(void)
 	
 		/*-- BEGIN KEYPAD --*/
 	GPIO_TecladoInit();
-	char letter[2] = "\0";
+	char key;
 	/*-- END KEYPAD --*/
 	
 		/*-- BEGIN WEIGHT --*/
@@ -29,6 +29,8 @@ int main(void)
 	sensor.DOUT_PinNumber = PIN_DOUT;	 
 	sensor.mode = 0;
 	int weight = -1;
+	char basg[8];
+	char unit[2] = "g-";
 	char weightP[8];
 	BASCULA_Tare(&sensor, 50);
 	
@@ -43,31 +45,37 @@ int main(void)
 	uint32_t temp;
 	char base[8];
   char grade[2] = "t-";
-  char temperature[8] = "";
+  char temperature[8];
 	
 	/*-- END TEMPERATURE --*/
+	
+	/*-- BEGIN LED FAN --*/
+	GPIO_VentiladorLedInit();
+	
+	/*-- END LED FAN --*/
+	
 	
 	
 	/*-- PROGRAM --*/
 	
 	while(1)
 	{
-		letter[0] = TECLADO_Read();
+		key = TECLADO_Read();
 		
-		if(getTime() - time > 6000)
+		if(getTime() - time > MINUTE)
 		{
 			temp = TEMPERATURA_GetTemperature();
 			strcpy(temperature, grade);
 			sprintf(base, "%zu", temp);
 			strcat(temperature,base);
-			SERIAL_Write(USART3, (uint8_t*) temperature);
+			SERIAL_SendWord(USART3,(uint8_t*) temperature);
 
 			time = getTime();
 		}
 			
-		if(letter[0] != KEYPAD_NOT_PRESSED)
+		if(key != KEYPAD_NOT_PRESSED)
 		{
-			SERIAL_Write(USART3,(uint8_t*) letter);
+			SERIAL_SendCharacter(USART3,key);
 		}
 		
 		weight = BASCULA_GetConversion(BASCULA_GetValue(&sensor));
@@ -75,12 +83,19 @@ int main(void)
 		if(BASCULA_GetState())
 		{
 			
-			sprintf(weightP,"%d", weight);
+			strcpy(weightP,unit);
+			sprintf(basg,"%d", weight);
+			strcat(weightP,basg);
 			
-			SERIAL_Write(USART3, (uint8_t*) weightP);
+			SERIAL_SendWord(USART3,(uint8_t*) weightP);
 			BASCULA_SetState(false);
 		}		
+		
+		if(SERIAL_GetReceiveCharacter(USART3) == 'e')
+		{
+			GPIO_toglePin(GPIOF,PIN_6);
+			SERIAL_ResetReceive();
+		}
+		
 	}
-	
-
 }

@@ -31,12 +31,13 @@ void SERIAL_SetBaudRate(USART_TypeDef* usartx, uint32_t mantissa, uint32_t fract
 
 
 void SERIAL_init(void);
-uint32_t SERIAL_GetUsartTXState(USART_TypeDef* usartx);
-uint32_t SERIAL_GetUsartRXState(USART_TypeDef* usartx);
-void SERIAL_WriteToUart(USART_TypeDef* usartx, uint8_t* buffer);
-void SERIAL_Write(USART_TypeDef* usartx, uint8_t* pMsg);
-void SERIAL_WriteInterrupt(USART_TypeDef* usartx);
+
 uint8_t SERIAL_GetReadValue(USART_TypeDef* usartx);
 void SERIAL_ReadInterrupt(USART_TypeDef* usartx);
+void SERIAL_SendCharacter(USART_TypeDef* usartx, uint8_t c);
+void SERIAL_SendWord(USART_TypeDef* usartx, uint8_t* str);
+void SERIAL_SetReceiveCharacter(USART_TypeDef* usartx, uint8_t c);
+uint8_t SERIAL_GetReceiveCharacter(USART_TypeDef* usartx);
+void SERIAL_ResetReceive(void);
 
 #endif

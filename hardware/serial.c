@@ -1,8 +1,7 @@
 #include "serial.h"
 #include "gpio.h"
 
-uint8_t* buffer;
-volatile uint8_t readBuffer;
+uint8_t receive;
 
 void SERIAL_WriteCR1(USART_TypeDef* usartx, USARTCR1_Type position, STATE_Value state)
 {
@@ -30,25 +29,6 @@ void SERIAL_SetBaudRate(USART_TypeDef* usartx, uint32_t mantissa, uint32_t fract
 	usartx->BRR |= (fraction << 0);	
 }
 
-uint32_t SERIAL_GetUsartTXState(USART_TypeDef* usartx)
-{ 
-	return (usartx->SR  & USART_SR_TXE);
-}
-
-uint32_t SERIAL_GetUsartRXState(USART_TypeDef* usartx)
-{ 
-	return (usartx->SR  & USART_SR_RXNE);
-}
-
-void SERIAL_WriteToUart(USART_TypeDef* usartx, uint8_t* buffer)
-{
-	usartx->DR |= *buffer;
-}
-
-uint8_t SERIAL_GetReadValue(USART_TypeDef* usartx)
-{
-	return usartx->DR;
-}
 
 /*---- Others ----*/
 
@@ -73,36 +53,44 @@ void SERIAL_init(void)
 
 void USART3_IRQHandler(void)
 {
-	
-	SERIAL_WriteInterrupt(USART3);
 	SERIAL_ReadInterrupt(USART3);
-}
-
-
-void SERIAL_Write(USART_TypeDef* usartx, uint8_t* pMsg)
-{
-		if (*pMsg != 0){
-		buffer = pMsg;
-		SERIAL_WriteCR1(usartx,USART_CR1_TXINTER, Value_SET);
-	}
-}
-
-void SERIAL_WriteInterrupt(USART_TypeDef* usartx)
-{
-	if(SERIAL_GetUsartTXState(USART3))
-	{
-		SERIAL_WriteToUart(usartx,buffer);
-		buffer++;
-		if((*buffer) == 0) SERIAL_WriteCR1(usartx,USART_CR1_TXINTER, Value_RESET);
-	}
 }
 
 void SERIAL_ReadInterrupt(USART_TypeDef* usartx)
 {
-	if(SERIAL_GetUsartRXState(usartx))
-	{
-		readBuffer = SERIAL_GetReadValue(usartx);
-		SERIAL_WriteCR1(USART3,USART_CR1_RXINTER, Value_RESET);
-	}
+	uint8_t tmp = 0;
+	while (USART2->SR & USART_SR_RXNE);
+	tmp = usartx->DR;
+	SERIAL_SetReceiveCharacter(usartx,tmp);
+}
+
+
+
+void SERIAL_SendCharacter(USART_TypeDef* usartx, uint8_t c)
+{
+	usartx->DR = c;
+	while(!(usartx->SR & USART_SR_TC));
+}
+
+void SERIAL_SendWord(USART_TypeDef* usartx, uint8_t* str)
+{
+	while(*str) SERIAL_SendCharacter(usartx, *str++);
+}
+
+
+void SERIAL_SetReceiveCharacter(USART_TypeDef* usartx, uint8_t c)
+{
+	if(c != 0) receive = c;
+}
+
+
+void SERIAL_ResetReceive(void)
+{
+	receive = 1;
+}
+
+uint8_t SERIAL_GetReceiveCharacter(USART_TypeDef* usartx)
+{
+	return receive;
 }
 
