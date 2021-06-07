@@ -21,7 +21,7 @@ public class MaterialDAOImpl extends AbstractListModel<Material> implements Mate
 	private static final String QUERY = "SELECT COUNT(kutxaId) AS \"count\" FROM kutxa WHERE motaId = ? AND lehengaiaId = ?";
 	
 	public MaterialDAOImpl() {
-		pStmt = DBConnector.getPreparedStatment(QUERY);
+		pStmt = DBConnector.getPreparedStatement(QUERY);
 		updateLst();
 	}
 	
