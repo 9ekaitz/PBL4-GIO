@@ -3,7 +3,6 @@ package screens;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -12,7 +11,6 @@ import java.beans.PropertyChangeListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -22,13 +20,13 @@ import model.Trabajador;
 import renders.RendererPersonal;
 
 
-public class Pantalla extends JPanel implements ActionListener,PropertyChangeListener{
+public class PersonalView extends JPanel implements ActionListener,PropertyChangeListener{
 	
 	PersonalDAOImpl listaTrabajadores;
 	JList<Trabajador>jlistTrabajadores;
 	RendererPersonal renderer;
 
-	public Pantalla() {
+	public PersonalView() {
 		this.setLayout(new BorderLayout(0, 20));
 		this.listaTrabajadores = new PersonalDAOImpl();
 		this.add(crearPanelBoton(),BorderLayout.NORTH);
@@ -38,7 +36,7 @@ public class Pantalla extends JPanel implements ActionListener,PropertyChangeLis
 	private Component crearPanelLista() {
 		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		jlistTrabajadores=new JList<>();
-		jlistTrabajadores.setListData(listaTrabajadores.getTrabajadores());
+		jlistTrabajadores.setModel(listaTrabajadores);
 		renderer=new RendererPersonal();
 		jlistTrabajadores.setCellRenderer(renderer);
 		panel.setViewportView(jlistTrabajadores);
@@ -50,15 +48,15 @@ public class Pantalla extends JPanel implements ActionListener,PropertyChangeLis
 		BoxLayout b = new BoxLayout(bar, BoxLayout.X_AXIS);
 		bar.setLayout(b);
 
-		JButton añadirTrabajador = new JButton("Añadir trabajador");
-		añadirTrabajador.setContentAreaFilled(false);
-		añadirTrabajador.setFocusable(false);
-		añadirTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
+		JButton addTrabajador = new JButton("A�adir trabajador");
+		addTrabajador.setContentAreaFilled(false);
+		addTrabajador.setFocusable(false);
+		addTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
 				BorderFactory.createLineBorder(Color.black),BorderFactory.createEmptyBorder(5, 5, 5, 5))));
 		
-		añadirTrabajador.setActionCommand("añadir");
-		añadirTrabajador.addActionListener(this);
-		bar.add(añadirTrabajador);
+		addTrabajador.setActionCommand("add");
+		addTrabajador.addActionListener(this);
+		bar.add(addTrabajador);
 		
 		return bar;
 	}
@@ -66,10 +64,10 @@ public class Pantalla extends JPanel implements ActionListener,PropertyChangeLis
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
-		case "añadir":
-			DialogoNuevoUsuario dialogo=new DialogoNuevoUsuario(Pantalla.this, "Nuevo Usuario", true);
+		case "add":
+			DialogoNuevoUsuario dialogo=new DialogoNuevoUsuario(PersonalView.this, "Nuevo Usuario", true);
 			Trabajador trabajador=dialogo.getTrabajador();
-			if(trabajador!=null)listaTrabajadores.add(trabajador);
+			if(trabajador!=null)listaTrabajadores.crearTrabajador(trabajador);
 			break;
 	}		
 	}
