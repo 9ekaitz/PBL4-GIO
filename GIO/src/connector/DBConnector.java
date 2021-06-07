@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
-
 public  class DBConnector {
 
 	private static final String DB_URL = "jdbc:mysql://localhost/biltegia";
