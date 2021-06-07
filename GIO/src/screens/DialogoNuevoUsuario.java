@@ -22,7 +22,7 @@ import model.Trabajador;
 
 public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	
-	JTextField nombre,apellido,dni,puesto,usuario,contraseña;
+	JTextField nombre,apellido,dni,puesto,usuario,passwd;
 	Trabajador newTrabajador = null;
 	PropertyChangeListener lst;
 	
@@ -53,13 +53,13 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		dni = new JTextField (80);
 		puesto = new JTextField (80);
 		usuario = new JTextField (80);
-		contraseña = new JTextField (80);
+		passwd = new JTextField (80);
 		panel.add(crearTextField(nombre,"Nombre:         "));
 		panel.add(crearTextField(apellido,"Apellidos:       "));
 		panel.add(crearTextField(dni,"DNI:                  "));
 		panel.add(crearTextField(puesto,"Puesto:           "));
 		panel.add(crearTextField(usuario,"Usuario:          "));
-		panel.add(crearTextField(contraseña,"Contraseña:  "));
+		panel.add(crearTextField(passwd,"Contrase�a:  "));
 
 
 		return panel;
@@ -102,7 +102,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("crear")){
-			newTrabajador = new Trabajador(nombre.getText(), apellido.getText(), dni.getText(), puesto.getText());
+			newTrabajador = new Trabajador(nombre.getText(), apellido.getText(), dni.getText(), usuario.getText(), passwd.getText(), puesto.getText());
 			dispose();
 		}
 		if (e.getActionCommand().equals("cancel")){
