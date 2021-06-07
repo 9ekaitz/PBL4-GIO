@@ -57,15 +57,15 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 				BorderFactory.createLineBorder(Color.red)));
 
 		JPanel rightPanel = new JPanel(new GridLayout(1, 3, 10, 0));
-		rightPanel.add(createBoxView(value.getId(), 5, KG_5));
-		rightPanel.add(createBoxView(value.getId(), 10, KG_10));
-		rightPanel.add(createBoxView(value.getId(), 15	, KG_15));
+		rightPanel.add(createBoxView(value, 5, KG_5));
+		rightPanel.add(createBoxView(value, 10, KG_10));
+		rightPanel.add(createBoxView(value, 15	, KG_15));
 		panel.add(rightPanel, BorderLayout.CENTER);
 
 		return panel;
 	}
 
-	private Component createBoxView(String lehengaiaId, int motaId, String path) {
+	private Component createBoxView(Material m, int motaId, String path) {
 		JPanel panel = new JPanel(new BorderLayout());
 		JLabel image = new JLabel(new ImageIcon("res/" + path));
 		JLabel count = null;
@@ -73,17 +73,9 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 		image.setBorder(null);
 		panel.add(image, BorderLayout.CENTER);
 		
-		ResultSet rs = DBConnector.executeQuery("SELECT COUNT(kutxaId) AS \"count\" FROM kutxa WHERE motaId = " + motaId
-				+ " AND lehengaiaId = \"" + lehengaiaId + "\"");
-		try {
-			while (rs.next()) {
-				count = new JLabel("Cantidad: "+String.valueOf(rs.getInt("count")), JLabel.CENTER);
-				count.setFont(new Font("Aral", Font.PLAIN, 24));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		count = new JLabel("Cantidad: "+String.valueOf(m.getBoxCount()[motaId/5-1]), JLabel.CENTER);
+		count.setFont(new Font("Aral", Font.PLAIN, 24));
+	
 		panel.add(count, BorderLayout.SOUTH);
 		return panel;
 	}

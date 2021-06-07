@@ -50,15 +50,15 @@ public class Pantalla extends JPanel implements ActionListener,PropertyChangeLis
 		BoxLayout b = new BoxLayout(bar, BoxLayout.X_AXIS);
 		bar.setLayout(b);
 
-		JButton añadirTrabajador = new JButton("Añadir trabajador");
-		añadirTrabajador.setContentAreaFilled(false);
-		añadirTrabajador.setFocusable(false);
-		añadirTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
+		JButton addTrabajador = new JButton("Añadir trabajador");
+		addTrabajador.setContentAreaFilled(false);
+		addTrabajador.setFocusable(false);
+		addTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
 				BorderFactory.createLineBorder(Color.black),BorderFactory.createEmptyBorder(5, 5, 5, 5))));
 		
-		añadirTrabajador.setActionCommand("añadir");
-		añadirTrabajador.addActionListener(this);
-		bar.add(añadirTrabajador);
+		addTrabajador.setActionCommand("añadir");
+		addTrabajador.addActionListener(this);
+		bar.add(addTrabajador);
 		
 		return bar;
 	}
