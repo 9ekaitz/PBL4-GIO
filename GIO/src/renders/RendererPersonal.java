@@ -31,7 +31,7 @@ public class RendererPersonal implements ListCellRenderer<Trabajador>{
 
 		JPanel p=new CustomPanel(ResourceHandler.getBackground(),new GridLayout());
 		p.add(crearUno(value));
-		p.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		p.setBorder(BorderFactory.createEmptyBorder(10, 350, 10, 350));
 		p.setVisible(true);
 		
 		return p;
@@ -70,10 +70,10 @@ public class RendererPersonal implements ListCellRenderer<Trabajador>{
 	}
 
 	private Component crearPanelTexto(Trabajador trabajador) {
-		JPanel p=new JPanel(new GridLayout(5,10,0,40));
+		JPanel p=new JPanel(new GridLayout(5,1,10,40));
 		p.setBackground(Color.white);
 		p.setSize(1280, 150);
-		p.setBorder(BorderFactory.createEmptyBorder(40, 10, 2, 0));
+		p.setBorder(BorderFactory.createEmptyBorder(40, 80, 2, 0));
 		JLabel nombre= new JLabel("Nombre: "+trabajador.getNombre());
 		JLabel apellidos= new JLabel("Apellidos: " +trabajador.getApellidos());
 		JLabel dni= new JLabel("DNI: "+trabajador.getDNI());

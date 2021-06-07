@@ -11,7 +11,7 @@ public  class DBConnector {
 
 	private static final String DB_URL = "jdbc:mysql://localhost/biltegia";
 	private static final String USER = "root";
-	private static final String PASS = "123456";
+	private static final String PASS = "12345678aA@";
 
 	private static Connection connection = null;
 	
@@ -19,7 +19,6 @@ public  class DBConnector {
 		try {
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -31,12 +30,12 @@ public  class DBConnector {
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rs;
 	}
 	
+<<<<<<< HEAD
 	public static ResultSet executeQuery(PreparedStatement stmt) {
 		ResultSet rs = null;
 		try {
@@ -73,6 +72,21 @@ public  class DBConnector {
 			return connection.prepareStatement(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+=======
+	public static void insertQuery(PreparedStatement stmt) {
+        try {
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+	
+	public static PreparedStatement getPreparedStatement(String string) {
+		
+		try {
+			return connection.prepareStatement(string);
+		} catch (SQLException e) {
+>>>>>>> branch 'personal' of git@github.com:9ekaitz/PBL4-GIO.git
 			e.printStackTrace();
 		}
 		return null;
