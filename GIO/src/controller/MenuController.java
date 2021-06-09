@@ -10,7 +10,7 @@ import screens.PersonalView;
 
 public class MenuController implements ActionListener{
 
-	ApplicationFrame frame;
+	private ApplicationFrame frame;
 	
 	public MenuController(ApplicationFrame frame) {
 		this.frame = frame;

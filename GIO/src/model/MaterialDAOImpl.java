@@ -16,8 +16,8 @@ import connector.DBConnector;
 
 public class MaterialDAOImpl extends AbstractListModel<Material> implements MaterialDAO{
 
-	PreparedStatement pStmt;
-	List<Material> lst = null;
+	private PreparedStatement pStmt;
+	private List<Material> lst = null;
 	private static final String QUERY = "SELECT COUNT(kutxaId) AS \"count\" FROM kutxa WHERE motaId = ? AND lehengaiaId = ?";
 	
 	public MaterialDAOImpl() {
