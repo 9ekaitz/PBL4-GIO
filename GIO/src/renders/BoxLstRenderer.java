@@ -1,4 +1,4 @@
-package screens;
+package renders;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,6 +16,7 @@ import javax.swing.ListCellRenderer;
 
 import gio.gfx.ResourceHandler;
 import model.Box;
+import screens.CustomPanel;
 
 public class BoxLstRenderer implements ListCellRenderer<Box> {
 

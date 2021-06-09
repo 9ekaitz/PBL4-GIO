@@ -47,7 +47,7 @@ public class StockView extends JPanel {
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		list = new JList<>();
 		list.setModel(model);
-		list.setCellRenderer(new MaterialRenderer(controller));
+		list.setCellRenderer(new MaterialRenderer());
 		list.setOpaque(false);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addListSelectionListener(controller);

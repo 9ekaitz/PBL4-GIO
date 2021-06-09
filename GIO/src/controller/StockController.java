@@ -25,12 +25,12 @@ import model.MaterialDAOImpl;
 import screens.DetailsPanel;
 import screens.StockView;
 
-public class StockController implements KeyListener, ActionListener, ListSelectionListener, ItemListener {
+public class StockController implements KeyListener, ListSelectionListener, ActionListener, ItemListener {
 
-	StockView view;
-	MaterialDAO model;
-	ApplicationFrame frame;
-	DetailsPanel boxView;
+	private StockView view;
+	private MaterialDAO model;
+	private ApplicationFrame frame;
+	private DetailsPanel boxView;
 
 	public StockController(StockView stockView, MaterialDAOImpl model, ApplicationFrame frame) {
 		this.view = stockView;
@@ -68,8 +68,7 @@ public class StockController implements KeyListener, ActionListener, ListSelecti
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case "try":
-			frame.changePanel(new JPanel());
+		case "create-box":
 			break;
 		case "show-box-10":
 

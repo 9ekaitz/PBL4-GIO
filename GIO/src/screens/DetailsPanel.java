@@ -24,6 +24,7 @@ import gio.gfx.ResourceHandler;
 import model.Box;
 import model.BoxDAOImpl;
 import model.Material;
+import renders.BoxLstRenderer;
 import tmp.CustomJList;
 
 public class DetailsPanel extends CustomPanel{

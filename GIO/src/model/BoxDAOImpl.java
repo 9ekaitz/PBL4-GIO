@@ -50,7 +50,7 @@ public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		boxLst.sort((b1,b2)->b1.getWeight()-b2.getWeight());
 		return boxLst;
 	}
 

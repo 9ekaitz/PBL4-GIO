@@ -6,21 +6,14 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
-import com.mysql.cj.protocol.ValueDecoder;
-import com.mysql.cj.xdevapi.Schema.Validation;
-
-import connector.DBConnector;
 import controller.StockController;
 import gio.gfx.ResourceHandler;
 import model.Material;
@@ -32,12 +25,6 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 	private final static String KG_10 = "box10.png";
 	private final static String KG_15 = "box15.png";
 	
-	StockController controller;
-	
-	public MaterialRenderer(StockController controller) {
-		this.controller = controller;
-	}
-
 	@Override
 	public Component getListCellRendererComponent(JList<? extends Material> list, Material value, int index,
 			boolean isSelected, boolean cellHasFocus) {
