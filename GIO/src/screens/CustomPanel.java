@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class CustomPanel extends JPanel {
 
-	Image bg;
+	private Image bg;
 	
 	public CustomPanel(Image bg, LayoutManager layout) {
 		super(layout);

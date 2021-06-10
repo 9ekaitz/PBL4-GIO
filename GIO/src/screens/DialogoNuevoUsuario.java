@@ -18,12 +18,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import gio.gfx.ResourceHandler;
-import model.Trabajador;
+import model.Personal;
 
 public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	
 	JTextField nombre,apellido,dni,puesto,usuario,passwd;
-	Trabajador newTrabajador = null;
+	Personal newTrabajador = null;
 	PropertyChangeListener lst;
 	
 	public DialogoNuevoUsuario(JPanel ventana, String titulo, boolean modo){
@@ -102,7 +102,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("crear")){
-			newTrabajador = new Trabajador(nombre.getText(), apellido.getText(), dni.getText(), usuario.getText(), passwd.getText(), puesto.getText());
+			newTrabajador = new Personal(nombre.getText(), apellido.getText(), dni.getText(), usuario.getText(), passwd.getText(), puesto.getText());
 			dispose();
 		}
 		if (e.getActionCommand().equals("cancel")){
@@ -111,7 +111,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		}
 		
 	}
-	Trabajador getTrabajador(){
+	Personal getTrabajador(){
 		return newTrabajador;
 	}
 

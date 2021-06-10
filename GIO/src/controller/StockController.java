@@ -27,10 +27,10 @@ import screens.StockView;
 
 public class StockController implements KeyListener, ActionListener, ListSelectionListener, ItemListener {
 
-	StockView view;
-	MaterialDAO model;
-	ApplicationFrame frame;
-	DetailsPanel boxView;
+	private StockView view;
+	private MaterialDAO model;
+	private ApplicationFrame frame;
+	private DetailsPanel boxView;
 
 	public StockController(StockView stockView, MaterialDAOImpl model, ApplicationFrame frame) {
 		this.view = stockView;
