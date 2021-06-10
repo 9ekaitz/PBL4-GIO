@@ -1,0 +1,12 @@
+package model.personal;
+
+import java.util.List;
+
+import model.Material;
+
+public interface MaterialDAO {
+
+	void createMaterial(Material material);
+	List<Material> getMaterialLst();
+	
+}

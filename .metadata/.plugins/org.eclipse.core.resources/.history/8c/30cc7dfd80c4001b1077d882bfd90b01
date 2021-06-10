@@ -1,0 +1,32 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.AbstractListModel;
+
+public class BoxDAOImpl extends AbstractListModel<Material> implements BoxDAO{
+
+	List<Material> lst;
+	
+	public BoxDAOImpl(Material m) {
+		lst = getAllBoxes(m)
+	}
+
+	@Override
+	public int getSize() {
+		return 0;
+	}
+
+	@Override
+	public Material getElementAt(int index) {
+		return null;
+	}
+
+	@Override
+	public List<Box> getAllBoxes(Material m) {
+		Lis
+		return null;
+	}
+	
+}

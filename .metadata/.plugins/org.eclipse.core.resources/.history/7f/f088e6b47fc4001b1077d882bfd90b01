@@ -1,0 +1,7 @@
+package model;
+
+public class Box {
+	private String id, date;
+	private int weight, order_origin;
+	
+}

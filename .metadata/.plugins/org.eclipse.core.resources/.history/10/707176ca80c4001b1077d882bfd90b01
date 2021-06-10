@@ -1,0 +1,10 @@
+package model;
+
+import javax.swing.AbstractListModel;
+
+public class BoxDAOImpl extends AbstractListModel<Material> implements BoxDAO{
+
+	public BoxDAOImpl(Material m) {
+	}
+	
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="InstallationDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="-2"/>
+		<item key="DIALOG_Y_ORIGIN" value="-32"/>
+		<item key="DIALOG_WIDTH" value="688"/>
+		<item key="DIALOG_HEIGHT" value="780"/>
+		<item key="DIALOG_FONT_NAME" value="1|Fira Sans|10.0|0|GTK|1|"/>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="com.objectaid.uml.new.classdiagram"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="com.objectaid.uml.new"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+	</section>
+</section>

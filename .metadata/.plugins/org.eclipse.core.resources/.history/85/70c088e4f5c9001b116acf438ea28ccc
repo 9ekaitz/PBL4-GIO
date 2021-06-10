@@ -1,0 +1,11 @@
+package screens.panel;
+
+import gfx.ResourceHandler;
+
+public class OrderMenu extends CustomPanel{
+
+	public OrderMenu() {
+		super(ResourceHandler.getBackground());
+	}
+
+}
