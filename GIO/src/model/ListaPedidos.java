@@ -17,10 +17,10 @@ public class ListaPedidos extends AbstractListModel<Pedido> {
 
         public ListaPedidos() {
             list = new ArrayList<>();
-            añadirPedidos();
+            addPedidos();
         }
 
-        public void añadirPedidos() {
+        public void addPedidos() {
 
             ResultSet values = DBConnector.executeQuery(" SELECT * FROM eskaera_onartzeko e JOIN bezeroa b ON e.bezeroa = b.idBezeroa;");
             try {
