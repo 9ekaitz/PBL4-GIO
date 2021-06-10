@@ -1,8 +1,0 @@
-package model;
-
-public class BoxDAOImpl implements BoxDAO{
-
-	public BoxDAOImpl(Material m) {
-	}
-	
-}

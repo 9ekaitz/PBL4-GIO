@@ -1,6 +1,0 @@
-INDEX VERSION 1.131+/home/eka/Documents/MU/2/PBL4/kodea/.metadata/.plugins/org.eclipse.jdt.core
-1796756348.index
-855282168.index
-1729849191.index
-178199934.index
-3442570330.index
