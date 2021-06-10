@@ -31,7 +31,6 @@ import screens.templates.CustomScrollPanel;
 
 public class DetailsPanel extends CustomPanel{
 
-	private static final String ADD_PATH_STRING = "res/create.png";
 	private BoxDAOImpl model;
 	private Material material;
 	private JList<BoxVO> lst;
@@ -55,7 +54,7 @@ public class DetailsPanel extends CustomPanel{
 		bar.setLayout(b);
 
 		JButton addMaterial = new JButton("Crear caja");
-		addMaterial.setIcon(new ImageIcon(ADD_PATH_STRING));
+		addMaterial.setIcon(new ImageIcon(ResourceHandler.CREATE_PATH_STRING));
 		addMaterial.setContentAreaFilled(false);
 		addMaterial.setFocusable(false);
 		addMaterial.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,10,5),BorderFactory.createCompoundBorder(

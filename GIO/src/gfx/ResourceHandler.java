@@ -8,7 +8,8 @@ import javax.imageio.ImageIO;
 
 public class ResourceHandler {
 
-	
+	public static final String ADD_PATH_STRING = "res/add.png";
+	public static final String CREATE_PATH_STRING = "res/create.png";
 	public final static String LOGO_PATH = "res/icons/GIOicon.png";
 	public final static String USER_ICON_PATH= "res/icons/user.png";
 	public final static String PEDIDOS_PATH = "res/1080/pedidos.png";

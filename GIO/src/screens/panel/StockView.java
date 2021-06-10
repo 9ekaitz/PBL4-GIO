@@ -18,6 +18,7 @@ import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
 import controller.StockController;
+import gfx.ResourceHandler;
 import model.stock.Material;
 import model.stock.MaterialDAOImpl;
 import renders.MaterialRenderer;
@@ -27,8 +28,6 @@ import screens.templates.CustomScrollPanel;
 
 public class StockView extends JPanel {
 
-	private static final String ADD_PATH_STRING = "res/add.png";
-	
 	private JList<Material> list;
 	private JTextField searchBar;
 	private MaterialDAOImpl model;
@@ -62,7 +61,7 @@ public class StockView extends JPanel {
 		bar.setLayout(b);
 
 		JButton addMaterial = new JButton("Añadir material");
-		addMaterial.setIcon(new ImageIcon(ADD_PATH_STRING));
+		addMaterial.setIcon(new ImageIcon(ResourceHandler.ADD_PATH_STRING));
 		addMaterial.setContentAreaFilled(false);
 		addMaterial.setFocusable(false);
 		addMaterial.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
