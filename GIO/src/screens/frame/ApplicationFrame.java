@@ -1,4 +1,4 @@
-package screens;
+package screens.frame;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
@@ -19,17 +19,16 @@ import javax.swing.JPopupMenu;
 
 import connector.DBConnector;
 import controller.FrameController;
+import gfx.ResourceHandler;
 import hardware.Receiver;
 import hardware.SERIALConnector;
 import hardware.Transmiter;
-import model.Personal;
-import renders.ResourceHandler;
+import model.staff.Personal;
+import screens.panel.MainMenu;
+import screens.templates.CustomPanel;
 
 public class ApplicationFrame extends JFrame{
 	
-	private final static String LOGO_PATH = "res/icons/GIOicon.png";
-	private final static String USER_ICON_PATH= "res/icons/user.png";
-
 	private FrameController controller;
 	private JPanel mainPanel;
 	private JPopupMenu userMenu;
@@ -89,7 +88,7 @@ public class ApplicationFrame extends JFrame{
 
 	private Component createUserButton() {
 		JLabel user = new JLabel();
-		user.setIcon(new ImageIcon(USER_ICON_PATH));
+		user.setIcon(new ImageIcon(ResourceHandler.USER_ICON_PATH));
 		user.setFocusable(false);
 		user.setBorder(null);
 		user.addMouseListener(new MouseAdapter() {
@@ -103,7 +102,7 @@ public class ApplicationFrame extends JFrame{
 
 	private Component createLogoButton() {
 		JButton button = new JButton();
-		button.setIcon(new ImageIcon(LOGO_PATH));
+		button.setIcon(new ImageIcon(ResourceHandler.LOGO_PATH));
 		button.setFocusable(false);
 		button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 5));
 		button.setBorderPainted(false);

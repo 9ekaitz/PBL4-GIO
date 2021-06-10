@@ -1,4 +1,4 @@
-package model;
+package model.box;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,16 +10,16 @@ import javax.swing.AbstractListModel;
 import connector.DBConnector;
 import model.stock.Material;
 
-public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
+public class BoxDAOImpl extends AbstractListModel<BoxVO> implements BoxDAO{
 
-	List<Box> lst;
+	List<BoxVO> lst;
 	
 	public BoxDAOImpl(Material m) {
 		lst = fetchBoxes(m);
 		fireContentsChanged(lst, 0, getSize());
 	}
 	
-	public BoxDAOImpl(List<Box> lst) {
+	public BoxDAOImpl(List<BoxVO> lst) {
 		this.lst = lst;
 		fireContentsChanged(lst, 0, getSize());
 	}
@@ -30,13 +30,13 @@ public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 	}
 
 	@Override
-	public Box getElementAt(int index) {
+	public BoxVO getElementAt(int index) {
 		return lst.get(index);
 	}
 
 	@Override
-	public List<Box> fetchBoxes(Material m)  {
-		List<Box> boxLst = new ArrayList<>();
+	public List<BoxVO> fetchBoxes(Material m)  {
+		List<BoxVO> boxLst = new ArrayList<>();
 		
 		ResultSet rs = DBConnector.executeQuery("SELECT kutxaId, motaId, jatorrizko_eskaera, e.jasotze_data "
 				+ "FROM kutxa k JOIN eskaera_hornitzailea e "
@@ -44,7 +44,7 @@ public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 				+ "WHERE lehengaiaId = \""+m.getId()+"\"");
 		try {
 			while (rs.next()) {
-				Box b = new Box(rs.getInt("kutxaId"), rs.getString("jasotze_data"), rs.getInt("motaId"), rs.getInt("jatorrizko_eskaera"));
+				BoxVO b = new BoxVO(rs.getInt("kutxaId"), rs.getString("jasotze_data"), rs.getInt("motaId"), rs.getInt("jatorrizko_eskaera"));
 				boxLst.add(b);
 			}
 		} catch (SQLException e) {
@@ -56,7 +56,7 @@ public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 	}
 
 	@Override
-	public List<Box> getAllBoxes() {
+	public List<BoxVO> getAllBoxes() {
 		return lst;
 	}
 }

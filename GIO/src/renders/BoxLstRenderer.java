@@ -14,15 +14,16 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
-import model.Box;
-import screens.CustomPanel;
+import gfx.ResourceHandler;
+import model.box.BoxVO;
+import screens.templates.CustomPanel;
 
-public class BoxLstRenderer implements ListCellRenderer<Box> {
+public class BoxLstRenderer implements ListCellRenderer<BoxVO> {
 
 	private static final String BOX_ICON_PATH = "res/box";
 	
 	@Override
-	public Component getListCellRendererComponent(JList<? extends Box> list, Box value, int index, boolean isSelected,
+	public Component getListCellRendererComponent(JList<? extends BoxVO> list, BoxVO value, int index, boolean isSelected,
 			boolean cellHasFocus) {
 		JPanel panel = new CustomPanel(ResourceHandler.getBackground(), new BorderLayout());
 		JPanel subPanel = new JPanel(new GridLayout());

@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import model.Personal;
+import model.staff.Personal;
 
 public  class DBConnector {
 

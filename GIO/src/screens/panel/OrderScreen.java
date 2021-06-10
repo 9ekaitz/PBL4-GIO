@@ -1,11 +1,12 @@
-package screens;
+package screens.panel;
 
 import renders.RenderPedido;
-import renders.ResourceHandler;
+import screens.templates.CustomPanel;
 
 import javax.swing.*;
 
 import connector.DBConnector;
+import gfx.ResourceHandler;
 import model.ListaPedidos;
 import model.Pedido;
 

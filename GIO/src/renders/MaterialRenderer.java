@@ -14,8 +14,9 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
+import gfx.ResourceHandler;
 import model.stock.Material;
-import screens.CustomPanel;
+import screens.templates.CustomPanel;
 
 public class MaterialRenderer implements ListCellRenderer<Material> {
 

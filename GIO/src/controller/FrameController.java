@@ -3,8 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import screens.ApplicationFrame;
-import screens.MainMenu;
+import screens.frame.ApplicationFrame;
+import screens.panel.MainMenu;
 
 public class FrameController implements ActionListener{
 

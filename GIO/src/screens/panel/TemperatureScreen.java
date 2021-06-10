@@ -1,4 +1,4 @@
-package screens;
+package screens.panel;
 
 
 
@@ -6,8 +6,10 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import connector.DBConnector;
 import controller.TemperatureController;
+import gfx.ResourceHandler;
 import model.Temperatura;
-import renders.ResourceHandler;
+import screens.frame.ApplicationFrame;
+import screens.templates.CustomPanel;
 
 import java.awt.*;
 import java.beans.PropertyChangeEvent;

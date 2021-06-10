@@ -1,4 +1,4 @@
-package screens;
+package screens.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,7 +23,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import controller.LoginController;
-import renders.ResourceHandler;
+import gfx.ResourceHandler;
+import screens.frame.LoginFrame;
+import screens.templates.CustomPanel;
 
 public class LoginScreen extends CustomPanel implements PropertyChangeListener, FocusListener{
 
@@ -92,7 +94,7 @@ public class LoginScreen extends CustomPanel implements PropertyChangeListener, 
 		panel.add(usuarioLabel);
 		panel.add(usuarioCampo);
 		
-		JLabel claveLabel = new JLabel("Contraseña");
+		JLabel claveLabel = new JLabel("Contraseï¿½a");
 		claveCampo = new JPasswordField(10);
 		claveCampo.addFocusListener(this);
 		
@@ -158,12 +160,12 @@ public class LoginScreen extends CustomPanel implements PropertyChangeListener, 
 			if (userFieldState) {
 				if (vista.getReceiver() != null) {
 					usuarioCampo.setText(usuarioCampo.getText() + vista.getReceiver().getKeypadData());
-				} else JOptionPane.showMessageDialog(null, "Dispositivo STM-32 no conectado", "Error conexión", JOptionPane.ERROR_MESSAGE);				
+				} else JOptionPane.showMessageDialog(null, "Dispositivo STM-32 no conectado", "Error conexiï¿½n", JOptionPane.ERROR_MESSAGE);				
 			}
 			if (pwdFieldState) {
 				if (vista.getReceiver() != null) {
 					claveCampo.setText(new String(claveCampo.getPassword()) + vista.getReceiver().getKeypadData());	
-				} else JOptionPane.showMessageDialog(null, "Dispositivo STM-32 no conectado", "Error conexión", JOptionPane.ERROR_MESSAGE);				
+				} else JOptionPane.showMessageDialog(null, "Dispositivo STM-32 no conectado", "Error conexiï¿½n", JOptionPane.ERROR_MESSAGE);				
 			}
 			break;
 		}

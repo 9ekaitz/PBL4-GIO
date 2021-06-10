@@ -1,4 +1,4 @@
-package screens;
+package screens.templates;
 
 import java.awt.Graphics;
 import java.awt.Image;

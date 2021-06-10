@@ -1,4 +1,4 @@
-package screens;
+package screens.panel;
 
 import javax.swing.*;
 
@@ -65,9 +65,9 @@ public class GraphicScreen extends JPanel {
     private JFreeChart createChart(DefaultCategoryDataset dataset) {
 
         JFreeChart chart = ChartFactory.createLineChart(
-                "Temperatura de conservación", // Chart title
+                "Temperatura de conservaciï¿½n", // Chart title
                 "Tiempo (Hora)", // X-Axis Label
-                "Temperatura (ºC)", // Y-Axis Label
+                "Temperatura (ï¿½C)", // Y-Axis Label
                 dataset
         );
 

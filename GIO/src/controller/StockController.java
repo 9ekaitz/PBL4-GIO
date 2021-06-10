@@ -14,15 +14,15 @@ import javax.swing.JList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import model.Box;
-import model.BoxDAOImpl;
+import model.box.BoxVO;
+import model.box.BoxDAOImpl;
 import model.stock.Material;
 import model.stock.MaterialDAO;
 import model.stock.MaterialDAOFiltered;
 import model.stock.MaterialDAOImpl;
-import screens.ApplicationFrame;
-import screens.DetailsPanel;
-import screens.StockView;
+import screens.frame.ApplicationFrame;
+import screens.panel.DetailsPanel;
+import screens.panel.StockView;
 
 public class StockController implements KeyListener, ActionListener, ListSelectionListener, ItemListener{
 
@@ -97,7 +97,7 @@ public class StockController implements KeyListener, ActionListener, ListSelecti
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		List<Box> allLst = boxView.getModel().getAllBoxes();
+		List<BoxVO> allLst = boxView.getModel().getAllBoxes();
 		boxView.setModel(new BoxDAOImpl (allLst.stream().filter(b->b.getWeight() == 5 && boxView.is5Checked()
 				|| b.getWeight() == 10 && boxView.is10Checked()
 				|| b.getWeight() == 15 && boxView.is15Checked()).collect(Collectors.toList())));

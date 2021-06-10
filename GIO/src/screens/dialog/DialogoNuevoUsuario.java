@@ -1,4 +1,4 @@
-package screens;
+package screens.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,8 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.Personal;
-import renders.ResourceHandler;
+import gfx.ResourceHandler;
+import model.staff.Personal;
+import screens.templates.CustomPanel;
 
 public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	
@@ -111,7 +112,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		}
 		
 	}
-	Personal getTrabajador(){
+	public Personal getTrabajador(){
 		return newTrabajador;
 	}
 

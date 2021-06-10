@@ -1,6 +1,7 @@
-package screens;
+package screens.panel;
 
-import renders.ResourceHandler;
+import gfx.ResourceHandler;
+import screens.templates.CustomPanel;
 
 public class OrderMenu extends CustomPanel{
 

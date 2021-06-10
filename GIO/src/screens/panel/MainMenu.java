@@ -1,4 +1,4 @@
-package screens;
+package screens.panel;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -14,7 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import controller.MenuController;
-import renders.ResourceHandler;
+import gfx.ResourceHandler;
+import screens.frame.ApplicationFrame;
+import screens.templates.CustomPanel;
 
 public class MainMenu extends CustomPanel{
 
@@ -23,16 +25,7 @@ public class MainMenu extends CustomPanel{
 	private final static int TOP_MARGIN = 30;
 	private final static int BOTTOM_MARGIN = 30;
 	private final static int INNER_MARGIN = 10;
-	private final static String BACKGORUND_PATH = "res/panel-fondo.png";
-	private final static String PEDIDOS_PATH = "res/1080/pedidos.png";
-	private final static String PEDIDOS_ROLL_PATH = "res/1080/pedidos-roll.png";
-	private final static String STOCK_PATH = "res/1080/stock.png";
-	private final static String STOCK_ROLL_PATH = "res/1080/stock-roll.png";
-	private final static String TEMP_PATH = "res/1080/temp.png";
-	private final static String TEMP_ROLL_PATH = "res/1080/temp-roll.png";
-	private final static String USERS_PATH = "res/1080/users.png";
-	private final static String USERS_ROLL_PATH = "res/1080/users-roll.png";
-	
+
 	private ApplicationFrame frame;
 	private MenuController controller;
 	
@@ -62,8 +55,8 @@ public class MainMenu extends CustomPanel{
 		pedidos.setPreferredSize(new Dimension(1162, 400));
 		pedidos.setActionCommand("screen-pedidos");
 		pedidos.addActionListener(controller);
-		pedidos.setIcon(new ImageIcon(PEDIDOS_PATH));
-		pedidos.setRolloverIcon(new ImageIcon(PEDIDOS_ROLL_PATH));
+		pedidos.setIcon(new ImageIcon(ResourceHandler.PEDIDOS_PATH));
+		pedidos.setRolloverIcon(new ImageIcon(ResourceHandler.PEDIDOS_ROLL_PATH));
 		pedidos.setBorder(null);
 		pedidos.addActionListener(controller);
 		this.add(pedidos, constraints);
@@ -80,8 +73,8 @@ public class MainMenu extends CustomPanel{
 		constraints.anchor = GridBagConstraints.SOUTHWEST;
 		JButton stock = new JButton();
 		stock.setPreferredSize(new Dimension(550, 400));
-		stock.setIcon(new ImageIcon(STOCK_PATH));
-		stock.setRolloverIcon(new ImageIcon(STOCK_ROLL_PATH));
+		stock.setIcon(new ImageIcon(ResourceHandler.STOCK_PATH));
+		stock.setRolloverIcon(new ImageIcon(ResourceHandler.STOCK_ROLL_PATH));
 		stock.setBorder(null);
 		stock.setActionCommand("screen-stock");
 		stock.addActionListener(controller);
@@ -100,8 +93,8 @@ public class MainMenu extends CustomPanel{
 		temp.setActionCommand("screen-temp");
 		temp.addActionListener(controller);
 		temp.setPreferredSize(new Dimension(550, 400));
-		temp.setIcon(new ImageIcon(TEMP_PATH));
-		temp.setRolloverIcon(new ImageIcon(TEMP_ROLL_PATH));
+		temp.setIcon(new ImageIcon(ResourceHandler.TEMP_PATH));
+		temp.setRolloverIcon(new ImageIcon(ResourceHandler.TEMP_ROLL_PATH));
 		temp.setBorder(null);
 		this.add(temp, constraints);
 	}
@@ -131,8 +124,8 @@ public class MainMenu extends CustomPanel{
 		users.setActionCommand("screen-users");
 		users.addActionListener(controller);
 		users.setPreferredSize(new Dimension(550, 400));
-		users.setIcon(new ImageIcon(USERS_PATH));
-		users.setRolloverIcon(new ImageIcon(USERS_ROLL_PATH));
+		users.setIcon(new ImageIcon(ResourceHandler.USERS_PATH));
+		users.setRolloverIcon(new ImageIcon(ResourceHandler.USERS_ROLL_PATH));
 		users.setBorder(null);
 		this.add(users, constraints);
 	}

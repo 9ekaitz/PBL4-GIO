@@ -1,4 +1,4 @@
-package model;
+package model.box;
 
 import java.util.List;
 
@@ -6,22 +6,22 @@ import javax.swing.AbstractListModel;
 
 import model.stock.Material;
 
-public class BoxDAOFiltered extends AbstractListModel<Box> implements BoxDAO {
+public class BoxDAOFiltered extends AbstractListModel<BoxVO> implements BoxDAO {
 
-	List<Box> lst;
+	List<BoxVO> lst;
 
-	public BoxDAOFiltered(List<Box> lst) {
+	public BoxDAOFiltered(List<BoxVO> lst) {
 		this.lst = lst;
 		fireContentsChanged(lst, 0, getSize());
 	}
 
 	@Override
-	public List<Box> fetchBoxes(Material m) {
+	public List<BoxVO> fetchBoxes(Material m) {
 		return lst;
 	}
 
 	@Override
-	public List<Box> getAllBoxes() {
+	public List<BoxVO> getAllBoxes() {
 		return lst;
 	}
 
@@ -31,7 +31,7 @@ public class BoxDAOFiltered extends AbstractListModel<Box> implements BoxDAO {
 	}
 
 	@Override
-	public Box getElementAt(int index) {
+	public BoxVO getElementAt(int index) {
 		return lst.get(index);
 	}
 

@@ -10,11 +10,11 @@ import javax.swing.JOptionPane;
 
 import connector.DBConnector;
 import model.Codificar;
-import model.Personal;
 import model.Recurso;
-import screens.ApplicationFrame;
-import screens.LoginScreen;
-import screens.LoginFrame;
+import model.staff.Personal;
+import screens.frame.ApplicationFrame;
+import screens.frame.LoginFrame;
+import screens.panel.LoginScreen;
 
 public class LoginController implements ActionListener {
 

@@ -1,15 +1,16 @@
-package screens;
+package screens.frame;
 
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import connector.DBConnector;
+import gfx.ResourceHandler;
 import hardware.Receiver;
 import hardware.SERIALConnector;
 import hardware.Transmiter;
-import model.Personal;
-import renders.ResourceHandler;
+import model.staff.Personal;
+import screens.panel.LoginScreen;
 
 public class LoginFrame extends JFrame{
 

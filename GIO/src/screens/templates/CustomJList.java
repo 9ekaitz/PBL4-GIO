@@ -1,10 +1,10 @@
-package model;
+package screens.templates;
 
 import java.awt.Graphics;
 
 import javax.swing.JList;
 
-import renders.ResourceHandler;
+import gfx.ResourceHandler;
 
 public class CustomJList<E> extends JList<E> {
 

@@ -1,10 +1,10 @@
-package screens;
+package screens.templates;
 
 import java.awt.Graphics;
 
 import javax.swing.JScrollPane;
 
-import renders.ResourceHandler;
+import gfx.ResourceHandler;
 
 public class CustomScrollPanel extends JScrollPane {
 

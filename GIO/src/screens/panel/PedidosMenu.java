@@ -1,4 +1,4 @@
-package screens;
+package screens.panel;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,8 +12,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import controller.MenuController;
-import renders.ResourceHandler;
-import screens.ApplicationFrame;
+import gfx.ResourceHandler;
+import screens.frame.ApplicationFrame;
+import screens.templates.CustomPanel;
 
 public class PedidosMenu extends CustomPanel{
 

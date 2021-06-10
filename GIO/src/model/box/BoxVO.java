@@ -1,10 +1,10 @@
-package model;
+package model.box;
 
-public class Box {
+public class BoxVO {
 	private String date;
 	private int id, weight, order_origin;
 	
-	public Box(int id, String date, int weight, int order_origin) {
+	public BoxVO(int id, String date, int weight, int order_origin) {
 		this.id = id;
 		this.date=date;
 		this.weight=weight;

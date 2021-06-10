@@ -4,7 +4,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import screens.TemperatureScreen;
+import screens.panel.TemperatureScreen;
 
 public class TemperatureController implements ActionListener {
 

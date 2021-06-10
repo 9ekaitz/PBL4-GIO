@@ -1,4 +1,4 @@
-package model;
+package model.staff;
 
 public class Personal {
 	

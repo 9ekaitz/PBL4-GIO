@@ -3,12 +3,12 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import screens.StockView;
-import screens.ApplicationFrame;
-import screens.OrderScreen;
-import screens.TemperatureScreen;
-import screens.PedidosMenu;
-import screens.PersonalView;
+import screens.frame.ApplicationFrame;
+import screens.panel.OrderScreen;
+import screens.panel.PedidosMenu;
+import screens.panel.PersonalView;
+import screens.panel.StockView;
+import screens.panel.TemperatureScreen;
 
 public class MenuController implements ActionListener{
 

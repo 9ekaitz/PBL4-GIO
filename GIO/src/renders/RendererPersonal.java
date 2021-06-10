@@ -14,8 +14,9 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
-import model.Personal;
-import screens.CustomPanel;
+import gfx.ResourceHandler;
+import model.staff.Personal;
+import screens.templates.CustomPanel;
 
 public class RendererPersonal implements ListCellRenderer<Personal>{
 	

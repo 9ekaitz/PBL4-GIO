@@ -1,4 +1,4 @@
-package screens;
+package screens.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,19 +20,21 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import controller.StockController;
-import model.Box;
-import model.BoxDAOImpl;
-import model.CustomJList;
+import gfx.ResourceHandler;
+import model.box.BoxVO;
+import model.box.BoxDAOImpl;
 import model.stock.Material;
 import renders.BoxLstRenderer;
-import renders.ResourceHandler;
+import screens.templates.CustomJList;
+import screens.templates.CustomPanel;
+import screens.templates.CustomScrollPanel;
 
 public class DetailsPanel extends CustomPanel{
 
 	private static final String ADD_PATH_STRING = "res/create.png";
 	private BoxDAOImpl model;
 	private Material material;
-	private JList<Box> lst;
+	private JList<BoxVO> lst;
 	private StockController controller;
 	private JCheckBox fiveK, tenK, fiveteenK;
 	

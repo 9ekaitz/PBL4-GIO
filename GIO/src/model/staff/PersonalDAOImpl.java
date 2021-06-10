@@ -1,4 +1,4 @@
-package model;
+package model.staff;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

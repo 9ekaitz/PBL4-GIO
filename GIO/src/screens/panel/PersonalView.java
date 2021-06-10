@@ -1,4 +1,4 @@
-package screens;
+package screens.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,9 +15,10 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import model.PersonalDAOImpl;
-import model.Personal;
+import model.staff.Personal;
+import model.staff.PersonalDAOImpl;
 import renders.RendererPersonal;
+import screens.dialog.DialogoNuevoUsuario;
 
 
 public class PersonalView extends JPanel implements ActionListener,PropertyChangeListener{
@@ -48,7 +49,7 @@ public class PersonalView extends JPanel implements ActionListener,PropertyChang
 		BoxLayout b = new BoxLayout(bar, BoxLayout.X_AXIS);
 		bar.setLayout(b);
 
-		JButton addTrabajador = new JButton("Añadir usuario");
+		JButton addTrabajador = new JButton("Aï¿½adir usuario");
 		addTrabajador.setContentAreaFilled(false);
 		addTrabajador.setFocusable(false);
 		addTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
