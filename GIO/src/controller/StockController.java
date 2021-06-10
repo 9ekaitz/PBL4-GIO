@@ -2,31 +2,39 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.print.DocFlavor.CHAR_ARRAY;
-import javax.swing.JPanel;
+import javax.swing.JList;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-import model.Material;
-import model.MaterialDAO;
-import model.MaterialDAOFiltered;
-import model.MaterialDAOImpl;
+import model.Box;
+import model.BoxDAOImpl;
+import model.stock.Material;
+import model.stock.MaterialDAO;
+import model.stock.MaterialDAOFiltered;
+import model.stock.MaterialDAOImpl;
 import screens.ApplicationFrame;
+import screens.DetailsPanel;
 import screens.StockView;
 
-public class StockController implements KeyListener, ActionListener {
+public class StockController implements KeyListener, ActionListener, ListSelectionListener, ItemListener{
 
-	StockView view;
-	MaterialDAO model;
-	ApplicationFrame frame;
+	private StockView view;
+	private MaterialDAO model;
+	private ApplicationFrame frame;
+	private DetailsPanel boxView;
 
 	public StockController(StockView stockView, MaterialDAOImpl model, ApplicationFrame frame) {
 		this.view = stockView;
 		this.model = model;
+		this.frame = frame;
 	}
 
 	@Override
@@ -59,8 +67,7 @@ public class StockController implements KeyListener, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case "try":
-			frame.changePanel(new JPanel());
+		case "create-box":
 			break;
 		case "show-box-10":
 
@@ -72,6 +79,28 @@ public class StockController implements KeyListener, ActionListener {
 		default:
 			break;
 		}
+	}
+	
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		if (e.getValueIsAdjusting()) return;
+		if (e.getSource() instanceof JList<?>) {
+			JList<Material> lst = (JList<Material>) e.getSource();
+			Material m = lst.getSelectedValue();
+			frame.changePanel(new DetailsPanel(m, this));
+		}
+	}
+	
+	public void setBoxView(DetailsPanel view) {
+		boxView = view;
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		List<Box> allLst = boxView.getModel().getAllBoxes();
+		boxView.setModel(new BoxDAOImpl (allLst.stream().filter(b->b.getWeight() == 5 && boxView.is5Checked()
+				|| b.getWeight() == 10 && boxView.is10Checked()
+				|| b.getWeight() == 15 && boxView.is15Checked()).collect(Collectors.toList())));
 	}
 
 }

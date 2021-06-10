@@ -17,8 +17,8 @@ public class ListaTrabajadores {
 	}
 	
 	public void inicializar() {
-		listaPersonal.add(new Trabajador("Hola","que tal","75648514M","estibador"));
-		listaPersonal.add(new Trabajador("Que tal","hola","75778514L","jefe"));
+		listaPersonal.add(new Trabajador("Hola","que tal","75648514M","estibador", "", ""));
+		listaPersonal.add(new Trabajador("Que tal","hola","75778514L","jefe", "", ""));
 	}
 	
 	public Trabajador[] getTrabajadores() {

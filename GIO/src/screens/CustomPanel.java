@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class CustomPanel extends JPanel {
 
-	Image bg;
+	private Image bg;
 	
 	public CustomPanel(Image bg, LayoutManager layout) {
 		super(layout);
@@ -22,9 +22,7 @@ public class CustomPanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		if (bg != null) {
-			g.drawImage(bg, 0, 0, null);
-		}
+		g.drawImage(bg, 0, 0, null);
 	}
 
 }

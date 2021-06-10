@@ -12,7 +12,7 @@ import screens.StaffScreen;
 
 public class MenuController implements ActionListener{
 
-	ApplicationFrame frame;
+	private ApplicationFrame frame;
 	
 	public MenuController(ApplicationFrame frame) {
 		this.frame = frame;

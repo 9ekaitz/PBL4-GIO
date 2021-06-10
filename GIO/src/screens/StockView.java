@@ -15,17 +15,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 
 import controller.StockController;
 import model.CustomJList;
-import model.Material;
-import model.MaterialDAOImpl;
+import model.stock.Material;
+import model.stock.MaterialDAOImpl;
 import renders.MaterialRenderer;
 
 public class StockView extends JPanel {
-
-
-	private static final long serialVersionUID = 1L;
 
 	private static final String ADD_PATH_STRING = "res/add.png";
 	
@@ -46,10 +44,12 @@ public class StockView extends JPanel {
 	private void createMaterialView() {
 		JScrollPane panel = new CustomScrollPanel(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		list = new CustomJList<>();
+		list = new JList<>();
 		list.setModel(model);
-		list.setCellRenderer(new MaterialRenderer(controller));
+		list.setCellRenderer(new MaterialRenderer());
 		list.setOpaque(false);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list.addListSelectionListener(controller);
 		panel.setViewportView(list);
 		this.add(panel, BorderLayout.CENTER);
 	}

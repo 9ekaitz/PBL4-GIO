@@ -30,9 +30,11 @@ public class MainMenu extends CustomPanel{
 	private final static String STOCK_ROLL_PATH = "res/1080/stock-roll.png";
 	private final static String TEMP_PATH = "res/1080/temp.png";
 	private final static String TEMP_ROLL_PATH = "res/1080/temp-roll.png";
+	private final static String USERS_PATH = "res/1080/users.png";
+	private final static String USERS_ROLL_PATH = "res/1080/users-roll.png";
 	
-	ApplicationFrame frame;
-	MenuController controller;
+	private ApplicationFrame frame;
+	private MenuController controller;
 	
 	public MainMenu(ApplicationFrame frame) {
 		super(ResourceHandler.getBackground());
@@ -129,6 +131,9 @@ public class MainMenu extends CustomPanel{
 		users.setActionCommand("screen-users");
 		users.addActionListener(controller);
 		users.setPreferredSize(new Dimension(550, 400));
+		users.setIcon(new ImageIcon(USERS_PATH));
+		users.setRolloverIcon(new ImageIcon(USERS_ROLL_PATH));
+		users.setBorder(null);
 		this.add(users, constraints);
 	}
 

@@ -27,18 +27,17 @@ import renders.ResourceHandler;
 
 public class ApplicationFrame extends JFrame{
 	
-	private static final long serialVersionUID = 1L;
 	private final static String LOGO_PATH = "res/icons/GIOicon.png";
 	private final static String USER_ICON_PATH= "res/icons/user.png";
 
-	FrameController controller;
-	JPanel mainPanel;
-	JPopupMenu userMenu;
-	Personal personal;
-	SERIALConnector connection = null;
-	Transmiter transmiter = null;
-	Receiver receiver = null;
-	Thread threadReceiver = null;
+	private FrameController controller;
+	private JPanel mainPanel;
+	private JPopupMenu userMenu;
+	private Personal personal;
+	private SERIALConnector connection = null;
+	private Transmiter transmiter = null;
+	private Receiver receiver = null;
+	private Thread threadReceiver = null;
 	
 	
 	public ApplicationFrame(Personal personal) {

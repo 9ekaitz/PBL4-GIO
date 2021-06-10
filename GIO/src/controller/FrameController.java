@@ -8,7 +8,7 @@ import screens.MainMenu;
 
 public class FrameController implements ActionListener{
 
-	ApplicationFrame frame;
+	private ApplicationFrame frame;
 	
 	public FrameController(ApplicationFrame applicationFrame) {
 		this.frame = applicationFrame;
