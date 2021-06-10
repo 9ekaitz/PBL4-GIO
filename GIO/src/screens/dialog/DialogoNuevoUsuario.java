@@ -14,10 +14,12 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import gfx.ResourceHandler;
+import model.Codificar;
 import model.staff.Personal;
 import screens.templates.CustomPanel;
 
@@ -26,6 +28,8 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	JTextField nombre,apellido,dni,puesto,usuario,passwd;
 	Personal newTrabajador = null;
 	PropertyChangeListener lst;
+	private String passwdHash;
+	Codificar codificar;
 	
 	public DialogoNuevoUsuario(JPanel ventana, String titulo, boolean modo){
 		super();
@@ -33,6 +37,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		this.setModal(modo);
 		this.setSize(800,500);
 		this.setLocation(200,200);
+		codificar = new Codificar();
 		this.lst=(PropertyChangeListener)ventana;
 		this.setContentPane(crearPanelVentana());
 		this.setVisible(true);
@@ -60,7 +65,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		panel.add(crearTextField(dni,"DNI:                  "));
 		panel.add(crearTextField(puesto,"Puesto:           "));
 		panel.add(crearTextField(usuario,"Usuario:          "));
-		panel.add(crearTextField(passwd,"Contrase�a:  "));
+		panel.add(crearTextField(passwd,"Contraseï¿œa:  "));
 
 
 		return panel;
@@ -100,11 +105,16 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		return panel;
 	}
 
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("crear")){
-			newTrabajador = new Personal(nombre.getText(), apellido.getText(), dni.getText(), usuario.getText(), passwd.getText(), puesto.getText());
-			dispose();
+			
+			if (checkDataValid(nombre, apellido, dni, puesto, usuario, passwd)) {
+				passwdHash = codificar.codificar(passwd.getText());				
+				newTrabajador = new Personal(nombre.getText(), apellido.getText(), dni.getText(), usuario.getText(), passwdHash, puesto.getText());
+				dispose();
+			}		
 		}
 		if (e.getActionCommand().equals("cancel")){
 			newTrabajador=null;
@@ -115,6 +125,36 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	public Personal getTrabajador(){
 		return newTrabajador;
 	}
-
-
+	
+	
+	public boolean checkDataValid(JTextField nombre,JTextField apellido,JTextField dni,JTextField puesto,JTextField usuario,JTextField passwd)
+	{
+		boolean checkIsNotEmpty = false;
+		boolean valid = false;
+		
+		if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !dni.getText().isEmpty() && !puesto.getText().isEmpty() && !usuario.getText().isEmpty() && !passwd.getText().isEmpty()) 
+		{
+			checkIsNotEmpty = true; 
+		} else JOptionPane.showMessageDialog(null, "Datos incompletos", "Error Registro", JOptionPane.ERROR_MESSAGE);
+		if (checkIsNotEmpty) {
+			if (isNumeric(usuario.getText()) && isNumeric(passwd.getText())) {
+				valid = true;
+			} else JOptionPane.showMessageDialog(null, "Datos de usuario o contraseña en formato incorrecto", "Error registro", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		return valid;
+	}
+	
+	
+	public static boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        int d = Integer.parseInt(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
 }

@@ -84,24 +84,26 @@ public  class DBConnector {
 		return rs;
 	}
 	
-	public static void insertQuery(PreparedStatement stmt) {
+	public static int insertQuery(PreparedStatement stmt) {
 		try {
-			stmt.executeUpdate();
+			return stmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return -1;
 	}
 	
-	public static void insertQuery(String query) {
+	public static int insertQuery(String query) {
 		Statement stmt;
 		try {
 			stmt = connection.createStatement();
-			stmt.executeUpdate(query);
+			return stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return -1;
 	}
 	
 

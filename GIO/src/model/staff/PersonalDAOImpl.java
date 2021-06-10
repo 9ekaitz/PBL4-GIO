@@ -47,7 +47,6 @@ public class PersonalDAOImpl extends AbstractListModel<Personal> implements Pers
 
 	@Override
 	public void addTrabajador(Personal t) {
-		listaPersonal.add(t);
 		PreparedStatement aux=preparedStatement;
 		try {
 			aux.setString(1, t.getDNI());
@@ -60,7 +59,9 @@ public class PersonalDAOImpl extends AbstractListModel<Personal> implements Pers
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DBConnector.insertQuery(aux);
+		if (DBConnector.insertQuery(aux) != -1) {
+			listaPersonal.add(t);
+		}
 		fireContentsChanged(listaPersonal, 0, getSize());
 	}
 
