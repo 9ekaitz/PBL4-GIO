@@ -2,55 +2,43 @@ package model;
 
 public class Personal {
 	
-	private String dni, nombre, apellido, rol;
+	String nombre;
+	String apellidos;
+	String dni;
+	String usuario;
+	String passwd;
+	String puesto;
 	
-	public Personal(String dni, String nombre, String apellido, String rol) {
-		this.dni = dni;
+	public Personal(String nombre, String apellidos, String dni,String usuario,String passwd, String puesto) {
 		this.nombre = nombre;
-		this.apellido = apellido;
-		this.rol = rol;
+		this.apellidos = apellidos;
+		this.dni = dni;
+		this.usuario=usuario;
+		this.passwd=passwd;
+		this.puesto = puesto;
 	}
-
-
-	public String getDni() {
-		return dni;
-	}
-	
 	
 	public String getNombre() {
 		return nombre;
 	}
-	
-	public String getApellido() {
-		return apellido;
+	public String getApellidos() {
+		return apellidos;
+	}
+	public String getDNI() {
+		return dni;
 	}
 	
-	public String getRol() {
-		return rol;
+	public String getUsuario() {
+		return usuario;
 	}
-	
-	
-	public void setDni(String dni) {
-		this.dni = dni;
+
+	public String getPasswd() {
+		return passwd;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+
+	public String getPuesto() {
+		return puesto;
 	}
-	
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-	
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
-	
-	
-	@Override
-	public String toString() {
-		return nombre +" " + apellido;
-	}
-	
-	
-	
+
 }
+

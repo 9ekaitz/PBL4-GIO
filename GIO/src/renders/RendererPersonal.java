@@ -14,14 +14,14 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
-import model.Trabajador;
+import model.Personal;
 import screens.CustomPanel;
 
-public class RendererPersonal implements ListCellRenderer<Trabajador>{
+public class RendererPersonal implements ListCellRenderer<Personal>{
 	
 
 	@Override
-	public Component getListCellRendererComponent(JList<? extends Trabajador> list, Trabajador value, int index,
+	public Component getListCellRendererComponent(JList<? extends Personal> list, Personal value, int index,
 			boolean isSelected, boolean cellHasFocus) {
 		
 
@@ -33,7 +33,7 @@ public class RendererPersonal implements ListCellRenderer<Trabajador>{
 		return p;
 	}
 
-	private Component crearUno(Trabajador value) {
+	private Component crearUno(Personal value) {
 		JPanel panel=new JPanel(new BorderLayout(0, 20));
 		panel.setBackground(Color.white);
 		panel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
@@ -65,7 +65,7 @@ public class RendererPersonal implements ListCellRenderer<Trabajador>{
 		return panel;
 	}
 
-	private Component crearPanelTexto(Trabajador trabajador) {
+	private Component crearPanelTexto(Personal trabajador) {
 		JPanel p=new JPanel(new GridLayout(5,1,10,40));
 		p.setBackground(Color.white);
 		p.setSize(1280, 150);

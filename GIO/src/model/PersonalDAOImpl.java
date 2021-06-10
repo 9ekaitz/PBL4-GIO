@@ -10,9 +10,9 @@ import javax.swing.AbstractListModel;
 
 import connector.DBConnector;
 
-public class PersonalDAOImpl extends AbstractListModel<Trabajador> implements PersonalDAO{
+public class PersonalDAOImpl extends AbstractListModel<Personal> implements PersonalDAO{
 	
-	List<Trabajador>listaPersonal;
+	List<Personal>listaPersonal;
 	PreparedStatement preparedStatement;
 	
 	public PersonalDAOImpl() {
@@ -23,8 +23,8 @@ public class PersonalDAOImpl extends AbstractListModel<Trabajador> implements Pe
 	}
 
 	@Override
-	public Trabajador[] getTrabajadores() {
-		return listaPersonal.toArray(new Trabajador[0]);
+	public Personal[] getTrabajadores() {
+		return listaPersonal.toArray(new Personal[0]);
 	}
 	
 	public void recolectarDatos() {
@@ -37,7 +37,7 @@ public class PersonalDAOImpl extends AbstractListModel<Trabajador> implements Pe
 				String puesto=datos.getString("rol");
 				String usuario=datos.getString("erabiltzailea");
 				String passwd="";
-				listaPersonal.add(new Trabajador(nombre, apellidos, dni, usuario, passwd, puesto));
+				listaPersonal.add(new Personal(nombre, apellidos, dni, usuario, passwd, puesto));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -46,7 +46,7 @@ public class PersonalDAOImpl extends AbstractListModel<Trabajador> implements Pe
 	}
 
 	@Override
-	public void crearTrabajador(Trabajador t) {
+	public void addTrabajador(Personal t) {
 		listaPersonal.add(t);
 		PreparedStatement aux=preparedStatement;
 		try {
@@ -65,7 +65,7 @@ public class PersonalDAOImpl extends AbstractListModel<Trabajador> implements Pe
 	}
 
 	@Override
-	public Trabajador getElementAt(int arg0) {
+	public Personal getElementAt(int arg0) {
 		return 	listaPersonal.get(arg0);
 	}
 

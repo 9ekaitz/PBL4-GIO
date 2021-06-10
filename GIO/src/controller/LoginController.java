@@ -50,10 +50,11 @@ public class LoginController implements ActionListener {
 									String dni = resultSet.getString("nan");
 									String nombre = resultSet.getString("izena");
 									String apellido = resultSet.getString("abizena");
-									String rol = resultSet.getString("rol");																
-									Personal personal = new Personal(dni, nombre, apellido, rol);									
+									String rol = resultSet.getString("rol");	
+									String usuario = resultSet.getString("erabiltzailea");
+									Personal personal = new Personal(dni, nombre, apellido, rol, usuario, "");									
 									if (personal != null) {
-										JOptionPane.showMessageDialog(null, "Bienvenido a GIO inventario, " + nombre, "Inicio de sesión", 0, new ImageIcon(Recurso.PATH_ICONOS+VALIDACION[1]));
+										JOptionPane.showMessageDialog(null, "Bienvenido a GIO inventario, " + nombre, "Inicio de sesiï¿½n", 0, new ImageIcon(Recurso.PATH_ICONOS+VALIDACION[1]));
 										vista.dispose();
 										if (vista.getConnection().isConnected()) {
 											vista.getConnection().closeSerial();
@@ -63,11 +64,11 @@ public class LoginController implements ActionListener {
 										ApplicationFrame app = new ApplicationFrame();
 									}
 								} else {
-									JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "Error! inicio de sesión", 0,new ImageIcon(Recurso.PATH_ICONOS+VALIDACION[0]));
+									JOptionPane.showMessageDialog(null, "Usuario o contraseï¿½a incorrecto", "Error! inicio de sesiï¿½n", 0,new ImageIcon(Recurso.PATH_ICONOS+VALIDACION[0]));
 								}
 							} catch (SQLException e1) {e1.printStackTrace();}
 			} else {
-				JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error, inicio de sesión", 0,new ImageIcon(Recurso.PATH_ICONOS+VALIDACION[0]));
+				JOptionPane.showMessageDialog(null, "Usuario o contraseï¿½a incorrectos", "Error, inicio de sesiï¿½n", 0,new ImageIcon(Recurso.PATH_ICONOS+VALIDACION[0]));
 			}									
 		}			
 	}

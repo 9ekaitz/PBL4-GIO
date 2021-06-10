@@ -16,14 +16,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import model.PersonalDAOImpl;
-import model.Trabajador;
+import model.Personal;
 import renders.RendererPersonal;
 
 
 public class PersonalView extends JPanel implements ActionListener,PropertyChangeListener{
 	
 	PersonalDAOImpl listaTrabajadores;
-	JList<Trabajador>jlistTrabajadores;
+	JList<Personal>jlistTrabajadores;
 	RendererPersonal renderer;
 
 	public PersonalView() {
@@ -48,7 +48,7 @@ public class PersonalView extends JPanel implements ActionListener,PropertyChang
 		BoxLayout b = new BoxLayout(bar, BoxLayout.X_AXIS);
 		bar.setLayout(b);
 
-		JButton addTrabajador = new JButton("Añadir trabajador");
+		JButton addTrabajador = new JButton("Añadir usuario");
 		addTrabajador.setContentAreaFilled(false);
 		addTrabajador.setFocusable(false);
 		addTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(
@@ -66,8 +66,8 @@ public class PersonalView extends JPanel implements ActionListener,PropertyChang
 		switch(e.getActionCommand()) {
 		case "add":
 			DialogoNuevoUsuario dialogo=new DialogoNuevoUsuario(PersonalView.this, "Nuevo Usuario", true);
-			Trabajador trabajador=dialogo.getTrabajador();
-			if(trabajador!=null)listaTrabajadores.crearTrabajador(trabajador);
+			Personal trabajador=dialogo.getTrabajador();
+			if(trabajador!=null)listaTrabajadores.addTrabajador(trabajador);
 			break;
 	}		
 	}

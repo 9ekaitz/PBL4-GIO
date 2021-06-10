@@ -40,7 +40,7 @@ public  class DBConnector {
 	
    public static void specificConnectionToDB(Personal personal)
    {
-	   String rol = personal.getRol();
+	   String rol = personal.getPuesto();
 	   
 	   switch (rol) {
 		case "mantenimiento": openConnectionToDB("mantenimiento", "Kaixo-123");break;

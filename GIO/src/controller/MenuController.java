@@ -8,7 +8,7 @@ import screens.ApplicationFrame;
 import screens.OrderScreen;
 import screens.TemperatureScreen;
 import screens.PedidosMenu;
-import screens.StaffScreen;
+import screens.PersonalView;
 
 public class MenuController implements ActionListener{
 
@@ -25,7 +25,7 @@ public class MenuController implements ActionListener{
 			frame.changePanel(new StockView(frame));
 			break;
 		case "screen-users":
-			frame.changePanel(new StaffScreen());
+			frame.changePanel(new PersonalView());
 			break;
 		case "screen-temp":
 			frame.changePanel(new TemperatureScreen(frame));
