@@ -1,6 +1,6 @@
 package screens;
 
-import gio.gfx.ResourceHandler;
+import renders.ResourceHandler;
 
 public class OrderMenu extends CustomPanel{
 

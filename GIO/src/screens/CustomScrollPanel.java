@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JScrollPane;
 
-import gio.gfx.ResourceHandler;
+import renders.ResourceHandler;
 
 public class CustomScrollPanel extends JScrollPane {
 

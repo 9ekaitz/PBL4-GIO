@@ -1,4 +1,4 @@
-package frame;
+package screens;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
@@ -19,9 +19,7 @@ import javax.swing.JPopupMenu;
 
 import connector.DBConnector;
 import controller.FrameController;
-import gio.gfx.ResourceHandler;
-import screens.CustomPanel;
-import screens.MainMenu;
+import renders.ResourceHandler;
 
 public class ApplicationFrame extends JFrame{
 	

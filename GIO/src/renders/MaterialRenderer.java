@@ -15,8 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
 import controller.StockController;
-import gio.gfx.ResourceHandler;
-import model.Material;
+import model.stock.Material;
 import screens.CustomPanel;
 
 public class MaterialRenderer implements ListCellRenderer<Material> {

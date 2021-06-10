@@ -14,8 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import controller.MenuController;
-import frame.ApplicationFrame;
-import gio.gfx.ResourceHandler;
+import renders.ResourceHandler;
 
 public class MainMenu extends CustomPanel{
 

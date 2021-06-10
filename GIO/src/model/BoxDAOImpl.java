@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 
 import connector.DBConnector;
+import model.stock.Material;
 
 public class BoxDAOImpl extends AbstractListModel<Box> implements BoxDAO{
 

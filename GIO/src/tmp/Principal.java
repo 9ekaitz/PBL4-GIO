@@ -1,8 +1,8 @@
 package tmp;
 import java.awt.Font;
 
-import frame.ApplicationFrame;
-import gio.gfx.ResourceHandler;
+import renders.ResourceHandler;
+import screens.ApplicationFrame;
 
 public class Principal {
 

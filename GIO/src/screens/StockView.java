@@ -18,11 +18,10 @@ import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
 import controller.StockController;
-import frame.ApplicationFrame;
-import model.Material;
-import model.MaterialDAOImpl;
+import model.CustomJList;
+import model.stock.Material;
+import model.stock.MaterialDAOImpl;
 import renders.MaterialRenderer;
-import tmp.CustomJList;
 
 public class StockView extends JPanel {
 

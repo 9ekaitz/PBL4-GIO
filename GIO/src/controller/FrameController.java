@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import frame.ApplicationFrame;
+import screens.ApplicationFrame;
 import screens.MainMenu;
 
 public class FrameController implements ActionListener{

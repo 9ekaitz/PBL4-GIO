@@ -1,4 +1,4 @@
-package model;
+package model.stock;
 
 import java.io.File;
 import java.io.FileOutputStream;

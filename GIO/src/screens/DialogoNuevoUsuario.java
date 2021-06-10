@@ -17,8 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import gio.gfx.ResourceHandler;
 import model.Trabajador;
+import renders.ResourceHandler;
 
 public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	
@@ -59,7 +59,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		panel.add(crearTextField(dni,"DNI:                  "));
 		panel.add(crearTextField(puesto,"Puesto:           "));
 		panel.add(crearTextField(usuario,"Usuario:          "));
-		panel.add(crearTextField(passwd,"Contraseña:  "));
+		panel.add(crearTextField(passwd,"Contraseï¿½a:  "));
 
 
 		return panel;

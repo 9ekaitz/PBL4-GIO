@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.swing.AbstractListModel;
 
+import model.stock.Material;
+
 public class BoxDAOFiltered extends AbstractListModel<Box> implements BoxDAO {
 
 	List<Box> lst;

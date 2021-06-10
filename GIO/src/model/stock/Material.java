@@ -1,4 +1,4 @@
-package model;
+package model.stock;
 
 import javax.swing.ImageIcon;
 

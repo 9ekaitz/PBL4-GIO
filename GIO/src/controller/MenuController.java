@@ -3,9 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-import frame.ApplicationFrame;
 import screens.StockView;
+import screens.ApplicationFrame;
 import screens.PersonalView;
 
 public class MenuController implements ActionListener{

@@ -15,13 +15,13 @@ import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import frame.ApplicationFrame;
 import model.Box;
 import model.BoxDAOImpl;
-import model.Material;
-import model.MaterialDAO;
-import model.MaterialDAOFiltered;
-import model.MaterialDAOImpl;
+import model.stock.Material;
+import model.stock.MaterialDAO;
+import model.stock.MaterialDAOFiltered;
+import model.stock.MaterialDAOImpl;
+import screens.ApplicationFrame;
 import screens.DetailsPanel;
 import screens.StockView;
 

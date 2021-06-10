@@ -1,10 +1,10 @@
-package tmp;
+package model;
 
 import java.awt.Graphics;
 
 import javax.swing.JList;
 
-import gio.gfx.ResourceHandler;
+import renders.ResourceHandler;
 
 public class CustomJList<E> extends JList<E> {
 

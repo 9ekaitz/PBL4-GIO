@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.border.Border;
 
-import gio.gfx.ResourceHandler;
 import model.Trabajador;
 import screens.CustomPanel;
 

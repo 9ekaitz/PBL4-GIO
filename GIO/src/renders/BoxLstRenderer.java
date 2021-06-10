@@ -14,7 +14,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
-import gio.gfx.ResourceHandler;
 import model.Box;
 import screens.CustomPanel;
 

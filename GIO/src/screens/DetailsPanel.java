@@ -20,12 +20,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import controller.StockController;
-import gio.gfx.ResourceHandler;
 import model.Box;
 import model.BoxDAOImpl;
-import model.Material;
+import model.CustomJList;
+import model.stock.Material;
 import renders.BoxLstRenderer;
-import tmp.CustomJList;
+import renders.ResourceHandler;
 
 public class DetailsPanel extends CustomPanel{
 
