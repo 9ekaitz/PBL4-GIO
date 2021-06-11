@@ -47,6 +47,7 @@ public class PersonalDAOImpl extends AbstractListModel<Personal> implements Pers
 
 	@Override
 	public void addTrabajador(Personal t) {
+		
 		PreparedStatement aux=preparedStatement;
 		try {
 			aux.setString(1, t.getDNI());

@@ -60,8 +60,7 @@ public class LoginController implements ActionListener {
 											vista.getConnection().closeSerial();
 										}
 										DBConnector.specificConnectionToDB(personal);
-										@SuppressWarnings("unused")
-										ApplicationFrame app = new ApplicationFrame();
+										ApplicationFrame app = new ApplicationFrame(personal);
 									}
 								} else {
 									JOptionPane.showMessageDialog(null, "Usuario o contrase�a incorrecto", "Error! inicio de sesi�n", 0,new ImageIcon(Recurso.PATH_ICONOS+VALIDACION[0]));

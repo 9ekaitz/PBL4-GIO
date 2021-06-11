@@ -51,20 +51,6 @@ public class ApplicationFrame extends JFrame{
 		this.setVisible(true);
 	}
 	
-	public ApplicationFrame() {
-		super("GIO");
-		serialConnectionStart();
-		DBConnector.openConnectionToDB("root", "123456");
-		controller = new FrameController(this);
-		this.setSize(new Dimension(1280,720));
-		this.setExtendedState(MAXIMIZED_BOTH);
-		this.setContentPane(createAppPanel());
-		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setVisible(true);
-	}
-	
-	
 	private Container createAppPanel() {
 		mainPanel = new JPanel(new BorderLayout());
 		JPanel subPanel = new CustomPanel(ResourceHandler.getTopBar());
