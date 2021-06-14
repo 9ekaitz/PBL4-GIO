@@ -2,13 +2,9 @@ package screens.panel;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import controller.MenuController;
@@ -42,10 +38,8 @@ public class PedidosMenu extends CustomPanel{
 	}
 
 	private void createRegistrarButton() {
-		JButton registrar = new JButton();
+		JButton registrar = new JButton("Registrar pedido");
 		registrar.setPreferredSize(new Dimension(550, 400));
-		//registrar.setIcon(new ImageIcon(PEDIDOS_PATH));
-		//registrar.setRolloverIcon(new ImageIcon(PEDIDOS_ROLL_PATH));
 		registrar.setBorder(null);
 		registrar.addActionListener(controller);
 		this.add(registrar);
@@ -56,8 +50,6 @@ public class PedidosMenu extends CustomPanel{
 		JButton listado = new JButton("Ver lista pedidos");
 		listado.setFont(new Font("Arial",Font.BOLD,25));
 		listado.setPreferredSize(new Dimension(550, 400));
-		//listado.setIcon(new ImageIcon(STOCK_PATH));
-		//listado.setRolloverIcon(new ImageIcon(STOCK_ROLL_PATH));
 		listado.setBorder(null);
 		listado.setActionCommand("screen-list");
 		listado.addActionListener(controller);
@@ -65,11 +57,9 @@ public class PedidosMenu extends CustomPanel{
 	}
 	
 	private void createProcesarButton() {
-		JButton procesar = new JButton();
+		JButton procesar = new JButton("Procesar pedido");
 		procesar.setPreferredSize(new Dimension(550, 400));
 		procesar.addActionListener(controller);
-		//procesar.setIcon(new ImageIcon(TEMP_PATH));
-		//procesar.setRolloverIcon(new ImageIcon(TEMP_ROLL_PATH));
 		procesar.setBorder(null);
 		this.add(procesar);
 	}

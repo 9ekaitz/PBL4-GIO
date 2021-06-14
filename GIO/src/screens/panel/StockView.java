@@ -60,7 +60,7 @@ public class StockView extends JPanel {
 		bar.setLayout(b);
 
 		JButton addMaterial = new JButton("Añadir material");
-		addMaterial.setIcon(new ImageIcon(ResourceHandler.ADD_PATH_STRING));
+		addMaterial.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.ADD_PATH_STRING)));
 		addMaterial.setContentAreaFilled(false);
 		addMaterial.setFocusable(false);
 		addMaterial.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(

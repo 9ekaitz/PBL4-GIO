@@ -3,7 +3,6 @@ package renders;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -20,7 +19,7 @@ import screens.templates.CustomPanel;
 
 public class BoxLstRenderer implements ListCellRenderer<BoxVO> {
 
-	private static final String BOX_ICON_PATH = "res/box";
+	private static final String BOX_ICON_PATH = "/box";
 	
 	@Override
 	public Component getListCellRendererComponent(JList<? extends BoxVO> list, BoxVO value, int index, boolean isSelected,
@@ -33,7 +32,7 @@ public class BoxLstRenderer implements ListCellRenderer<BoxVO> {
 		subPanel.add(createColumn("Pedido de origen", String.valueOf(value.getOrder_origin())));
 		panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(10,2,10,2),BorderFactory.createLoweredBevelBorder()));
 
-		JLabel icon = new JLabel(new ImageIcon(BOX_ICON_PATH+value.getWeight()+"_64.png"));
+		JLabel icon = new JLabel(new ImageIcon(getClass().getResource(BOX_ICON_PATH+value.getWeight()+"_64.png")));
 		icon.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 		
 		panel.add(icon, BorderLayout.WEST);

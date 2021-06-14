@@ -1,9 +1,7 @@
 package model;
 
-import java.util.Arrays;
 import java.util.List;
 
-import model.Cliente;
 
 public class Pedido {
 

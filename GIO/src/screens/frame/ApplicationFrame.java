@@ -75,7 +75,7 @@ public class ApplicationFrame extends JFrame{
 
 	private Component createUserButton() {
 		JLabel user = new JLabel();
-		user.setIcon(new ImageIcon(ResourceHandler.USER_ICON_PATH));
+		user.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.USER_ICON_PATH)));
 		user.setFocusable(false);
 		user.setBorder(null);
 		user.addMouseListener(new MouseAdapter() {
@@ -89,7 +89,7 @@ public class ApplicationFrame extends JFrame{
 
 	private Component createLogoButton() {
 		JButton button = new JButton();
-		button.setIcon(new ImageIcon(ResourceHandler.LOGO_PATH));
+		button.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.LOGO_PATH)));
 		button.setFocusable(false);
 		button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 5));
 		button.setBorderPainted(false);

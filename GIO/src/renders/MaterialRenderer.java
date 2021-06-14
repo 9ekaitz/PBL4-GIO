@@ -53,7 +53,7 @@ public class MaterialRenderer implements ListCellRenderer<Material> {
 
 	private Component createBoxView(Material m, int motaId, String path) {
 		JPanel panel = new JPanel(new BorderLayout());
-		JLabel image = new JLabel(new ImageIcon("res/" + path));
+		JLabel image = new JLabel(new ImageIcon(getClass().getResource("/" + path)));
 		JLabel count = null;
 		image.setPreferredSize(new Dimension(256,256));
 		image.setBorder(null);

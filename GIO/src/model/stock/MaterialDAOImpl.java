@@ -1,8 +1,5 @@
 package model.stock;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.Blob;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.AbstractListModel;
+import javax.swing.ImageIcon;
 
 import connector.DBConnector;
 
@@ -50,13 +48,10 @@ public class MaterialDAOImpl extends AbstractListModel<Material> implements Mate
 				}
 				if (blob != null) {
 					 byte byteArray[] = blob.getBytes(1,(int)blob.length());
-				     File file = new File("tmp/"+name+".png");
-				     FileOutputStream outPutStream = new FileOutputStream(file);
-				     outPutStream.write(byteArray);
-				     lst.add(new Material(id, name, file.getAbsolutePath(), boxCount));
-				} else lst.add(new Material(id, name, "res/unknown.png", boxCount));
+				     lst.add(new Material(id, name, new ImageIcon(byteArray), boxCount));
+				} else lst.add(new Material(id, name, new ImageIcon(getClass().getResource("/unknown.png")), boxCount));
 		       			}
-		} catch (SQLException | IOException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

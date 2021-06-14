@@ -1,24 +1,19 @@
 package screens.panel;
+
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
 import java.awt.Insets;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 
 import controller.MenuController;
 import gfx.ResourceHandler;
 import screens.frame.ApplicationFrame;
 import screens.templates.CustomPanel;
 
-public class MainMenu extends CustomPanel{
+public class MainMenu extends CustomPanel {
 
 	private final static int LEFT_MARGIN = 10;
 	private final static int RIGHT_MARGIN = 10;
@@ -28,7 +23,7 @@ public class MainMenu extends CustomPanel{
 
 	private ApplicationFrame frame;
 	private MenuController controller;
-	
+
 	public MainMenu(ApplicationFrame frame) {
 		super(ResourceHandler.getBackground());
 		this.frame = frame;
@@ -50,18 +45,17 @@ public class MainMenu extends CustomPanel{
 		constraints.gridy = 0;
 		constraints.gridwidth = 2;
 		constraints.anchor = GridBagConstraints.SOUTHEAST;
-		
+
 		JButton pedidos = new JButton();
 		pedidos.setPreferredSize(new Dimension(1162, 400));
 		pedidos.setActionCommand("screen-pedidos");
 		pedidos.addActionListener(controller);
-		pedidos.setIcon(new ImageIcon(ResourceHandler.PEDIDOS_PATH));
-		pedidos.setRolloverIcon(new ImageIcon(ResourceHandler.PEDIDOS_ROLL_PATH));
+		pedidos.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.PEDIDOS_PATH)));
+		pedidos.setRolloverIcon(new ImageIcon(this.getClass().getResource(ResourceHandler.PEDIDOS_ROLL_PATH)));
 		pedidos.setBorder(null);
 		pedidos.addActionListener(controller);
 		this.add(pedidos, constraints);
 	}
-	
 
 	private void createStockButton() {
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -73,14 +67,14 @@ public class MainMenu extends CustomPanel{
 		constraints.anchor = GridBagConstraints.SOUTHWEST;
 		JButton stock = new JButton();
 		stock.setPreferredSize(new Dimension(550, 400));
-		stock.setIcon(new ImageIcon(ResourceHandler.STOCK_PATH));
-		stock.setRolloverIcon(new ImageIcon(ResourceHandler.STOCK_ROLL_PATH));
+		stock.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.STOCK_PATH)));
+		stock.setRolloverIcon(new ImageIcon(getClass().getResource(ResourceHandler.STOCK_ROLL_PATH)));
 		stock.setBorder(null);
 		stock.setActionCommand("screen-stock");
 		stock.addActionListener(controller);
 		this.add(stock, constraints);
 	}
-	
+
 	private void createTempButton() {
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.insets = new Insets(INNER_MARGIN, LEFT_MARGIN, BOTTOM_MARGIN, INNER_MARGIN);
@@ -93,12 +87,12 @@ public class MainMenu extends CustomPanel{
 		temp.setActionCommand("screen-temp");
 		temp.addActionListener(controller);
 		temp.setPreferredSize(new Dimension(550, 400));
-		temp.setIcon(new ImageIcon(ResourceHandler.TEMP_PATH));
-		temp.setRolloverIcon(new ImageIcon(ResourceHandler.TEMP_ROLL_PATH));
+		temp.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.TEMP_PATH)));
+		temp.setRolloverIcon(new ImageIcon(getClass().getResource(ResourceHandler.TEMP_ROLL_PATH)));
 		temp.setBorder(null);
 		this.add(temp, constraints);
 	}
-	
+
 	private void createStatsButton() {
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.insets = new Insets(INNER_MARGIN, INNER_MARGIN, BOTTOM_MARGIN, INNER_MARGIN);
@@ -111,7 +105,7 @@ public class MainMenu extends CustomPanel{
 		stats.setPreferredSize(new Dimension(550, 400));
 		this.add(stats, constraints);
 	}
-	
+
 	private void createUsersButton() {
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.insets = new Insets(INNER_MARGIN, INNER_MARGIN, BOTTOM_MARGIN, RIGHT_MARGIN);
@@ -124,8 +118,8 @@ public class MainMenu extends CustomPanel{
 		users.setActionCommand("screen-users");
 		users.addActionListener(controller);
 		users.setPreferredSize(new Dimension(550, 400));
-		users.setIcon(new ImageIcon(ResourceHandler.USERS_PATH));
-		users.setRolloverIcon(new ImageIcon(ResourceHandler.USERS_ROLL_PATH));
+		users.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.USERS_PATH)));
+		users.setRolloverIcon(new ImageIcon(getClass().getResource(ResourceHandler.USERS_ROLL_PATH)));
 		users.setBorder(null);
 		this.add(users, constraints);
 	}

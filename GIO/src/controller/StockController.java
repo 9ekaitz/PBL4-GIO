@@ -57,7 +57,6 @@ public class StockController implements KeyListener, ActionListener, ListSelecti
 	}
 
 	private List<Material> createSubLst(List<Material> lst) {
-		List<Material> filterdLst = new ArrayList<>();
 		String searchTerm = view.getSearch();
 		return lst.stream().filter(
 				item -> item.getName().toLowerCase().substring(0, searchTerm.length()).equals(searchTerm.toLowerCase()))
