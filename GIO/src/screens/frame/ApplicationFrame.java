@@ -41,6 +41,7 @@ public class ApplicationFrame extends JFrame{
 	
 	public ApplicationFrame(Personal personal) {
 		super("GIO");
+		serialConnectionStart();
 		DBConnector.openConnectionToDB("root", "123456");
 		controller = new FrameController(this);
 		this.setSize(new Dimension(1280,720));
