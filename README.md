@@ -8,6 +8,17 @@ while controlling the products of an inventory and it's temperature.
 
 Proiektuaren izena Gestor de Inventario (GIO) da. Bere helburu nagusia biltegi baten langileei biltegia kudeatu ahal izateko sistemaz hornitzea da, pertsonalaren kudeaketa, produktuen erreserba eta temperatura kontrolatzen
 
+## Components
+- Java GUI
+- Microcontroller program for STM32f407 board
+- Web application for online store
+- DB
+
+<p align="center">
+<img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/9ekaitz/PBL4-GIO?include_prereleases">
+<a href="https://www.gnu.org/licenses/gpl-3.0" alt="License: GPLv3"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg"></a> 
+</p>
+
 
 ## License
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](https://www.gnu.org/licenses/gpl-3.0.en.html)  
