@@ -8,10 +8,10 @@ public class Material {
 	private ImageIcon img;
 	private int boxCount[];
 
-	public Material(String id, String name, String path, int[] count) {
+	public Material(String id, String name, ImageIcon img, int[] count) {
 		this.id = id;
 		this.name = name;
-		this.img = new ImageIcon(path);
+		this.img = img;
 		this.boxCount = count;
 	}
 

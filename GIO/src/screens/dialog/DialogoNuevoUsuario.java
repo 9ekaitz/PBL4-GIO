@@ -109,7 +109,6 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("crear")){
-			
 			if (checkDataValid(nombre, apellido, dni, puesto, usuario, passwd)) {
 				passwdHash = codificar.codificar(passwd.getText());				
 				newTrabajador = new Personal(nombre.getText(), apellido.getText(), dni.getText(), usuario.getText(), passwdHash, puesto.getText());
@@ -120,7 +119,6 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 			newTrabajador=null;
 			dispose();
 		}
-		
 	}
 	public Personal getTrabajador(){
 		return newTrabajador;

@@ -4,11 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.accessibility.AccessibleRole;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -54,7 +50,7 @@ public class DetailsPanel extends CustomPanel{
 		bar.setLayout(b);
 
 		JButton addMaterial = new JButton("Crear caja");
-		addMaterial.setIcon(new ImageIcon(ResourceHandler.CREATE_PATH_STRING));
+		addMaterial.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.CREATE_PATH_STRING)));
 		addMaterial.setContentAreaFilled(false);
 		addMaterial.setFocusable(false);
 		addMaterial.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,10,5),BorderFactory.createCompoundBorder(
