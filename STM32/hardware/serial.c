@@ -34,7 +34,7 @@ void SERIAL_SetBaudRate(USART_TypeDef* usartx, uint32_t baud)
 	usartx->BRR |= (fraction << 0);
 }
 
-void SERIAL_usardiv(float a, uint32_t* c, uint32_t* d)
+void SERIAL_usardiv(float div, uint32_t* mantissa, uint32_t* fraction)
 {
     *mantissa = (uint32_t) div;
     *fraction = round((div - *mantissa) * 16);

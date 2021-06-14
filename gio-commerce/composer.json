@@ -1,0 +1,21 @@
+{
+    "name": "gio/gio-commerce",
+    "description": "Almacen GIO",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Estalyn Curay",
+            "email": "estalynsalvador.cura@alumni.mondragon.edu"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "gio\\":"src/"
+        }
+    }
+
+}
