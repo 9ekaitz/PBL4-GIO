@@ -23,7 +23,6 @@ import model.stock.Material;
 import model.stock.MaterialDAOImpl;
 import renders.MaterialRenderer;
 import screens.frame.ApplicationFrame;
-import screens.templates.CustomJList;
 import screens.templates.CustomScrollPanel;
 
 public class StockView extends JPanel {
