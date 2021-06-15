@@ -37,10 +37,10 @@ public class ApplicationFrame extends JFrame{
 	private Transmiter transmiter = null;
 	private Receiver receiver = null;
 	private Thread threadReceiver = null;
-	
-	
+
 	public ApplicationFrame(Personal personal) {
 		super("GIO");
+
 		serialConnectionStart();
 		DBConnector.openConnectionToDB("root", "123456");
 		controller = new FrameController(this);

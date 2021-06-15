@@ -49,7 +49,7 @@ public class PersonalView extends JPanel implements ActionListener,PropertyChang
 		BoxLayout b = new BoxLayout(bar, BoxLayout.X_AXIS);
 		bar.setLayout(b);
 
-		JButton addTrabajador = new JButton("Aï¿½adir usuario");
+		JButton addTrabajador = new JButton("Añadir usuario");
 		addTrabajador.setContentAreaFilled(false);
 		addTrabajador.setFocusable(false);
 		addTrabajador.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createCompoundBorder(

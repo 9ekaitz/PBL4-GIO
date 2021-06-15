@@ -9,6 +9,7 @@ import screens.panel.PedidosMenu;
 import screens.panel.PersonalView;
 import screens.panel.StockView;
 import screens.panel.TemperatureScreen;
+import screens.panel.WeightScreen;
 
 public class MenuController implements ActionListener{
 
@@ -35,6 +36,9 @@ public class MenuController implements ActionListener{
 			break;
 		case "screen-list":
 			frame.changePanel(new OrderScreen());
+			break;
+		case "screen-weight":
+			frame.changePanel(new WeightScreen(frame));
 			break;
 		default:
 			break;

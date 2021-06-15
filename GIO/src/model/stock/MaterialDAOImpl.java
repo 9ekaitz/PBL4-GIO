@@ -52,8 +52,10 @@ public class MaterialDAOImpl extends AbstractListModel<Material> implements Mate
 				} else lst.add(new Material(id, name, new ImageIcon(getClass().getResource("/unknown.png")), boxCount));
 		       			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(lst); //TODO remove line
 		fireContentsChanged(lst, 0, lst.size());
 	}
 

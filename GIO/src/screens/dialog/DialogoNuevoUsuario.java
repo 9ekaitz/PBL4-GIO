@@ -65,7 +65,7 @@ public class DialogoNuevoUsuario extends JDialog implements ActionListener{
 		panel.add(crearTextField(dni,"DNI:                  "));
 		panel.add(crearTextField(puesto,"Puesto:           "));
 		panel.add(crearTextField(usuario,"Usuario:          "));
-		panel.add(crearTextField(passwd,"Contraseï¿œa:  "));
+		panel.add(crearTextField(passwd,"Contrase�a:  "));
 
 
 		return panel;

@@ -24,8 +24,10 @@ public class MainMenu extends CustomPanel {
 	private ApplicationFrame frame;
 	private MenuController controller;
 
+
 	public MainMenu(ApplicationFrame frame) {
 		super(ResourceHandler.getBackground());
+
 		this.frame = frame;
 		this.controller = new MenuController(frame);
 		this.setLayout(new GridBagLayout());
@@ -51,7 +53,7 @@ public class MainMenu extends CustomPanel {
 		pedidos.setActionCommand("screen-pedidos");
 		pedidos.addActionListener(controller);
 		pedidos.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.PEDIDOS_PATH)));
-		pedidos.setRolloverIcon(new ImageIcon(this.getClass().getResource(ResourceHandler.PEDIDOS_ROLL_PATH)));
+		pedidos.setRolloverIcon(new ImageIcon(getClass().getResource(ResourceHandler.PEDIDOS_ROLL_PATH)));
 		pedidos.setBorder(null);
 		pedidos.addActionListener(controller);
 		this.add(pedidos, constraints);
@@ -103,6 +105,11 @@ public class MainMenu extends CustomPanel {
 		constraints.anchor = GridBagConstraints.NORTH;
 		JButton stats = new JButton();
 		stats.setPreferredSize(new Dimension(550, 400));
+		stats.setIcon(new ImageIcon(getClass().getResource(ResourceHandler.BA_PATH)));
+		stats.setRolloverIcon(new ImageIcon(getClass().getResource(ResourceHandler.BA_ROLL_PATH)));
+		stats.setBorder(null);
+		stats.setActionCommand("screen-weight");
+		stats.addActionListener(controller);
 		this.add(stats, constraints);
 	}
 

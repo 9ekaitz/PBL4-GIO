@@ -43,10 +43,10 @@ public  class DBConnector {
 	   String rol = personal.getPuesto();
 	   
 	   switch (rol) {
-		case "mantenimiento": openConnectionToDB("mantenimiento", "Kaixo-123");break;
-		case "operario": openConnectionToDB("operario", "Kaixo-123"); break;
-		case "estibador": openConnectionToDB("estibador", "Kaixo-123"); break;
-		case "jefe": openConnectionToDB("jefe", "Kaixo-123"); break;
+		case "mantenimiento": openConnectionToDB("root", "123456");break;
+		case "operario": openConnectionToDB("root", "123456"); break;
+		case "estibador": openConnectionToDB("root", "123456"); break;
+		case "jefe": openConnectionToDB("root", "123456"); break;
 		default:
 			openConnectionToDB("root", "123456");
 			break;

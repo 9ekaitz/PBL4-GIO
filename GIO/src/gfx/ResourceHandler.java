@@ -19,12 +19,16 @@ public class ResourceHandler {
 	public final static String TEMP_ROLL_PATH = "/1080/temp-roll.png";
 	public final static String USERS_PATH = "/1080/users.png";
 	public final static String USERS_ROLL_PATH = "/1080/users-roll.png";
+	public final static String BA_PATH = "/1080/balanza.png";
+	public final static String BA_ROLL_PATH = "/1080/balanza-roll.png";
 
 	private final static String LOGIN_BACKGROUND_PATH = "720/backgrounds/login-background.png";
 	private final static String BACKGORUND_PATH = "1080/backgrounds/panel-fondo.png";
 	private final static String TOP_BAR_PATH = "1080/backgrounds/topBar.png";
+	private final static String WEIGHT_BACKGROUND_PATH = "720/backgrounds/weight-background.png";
 	
-	public static Image background, topBarBG, loginBackground;
+	
+	public static Image background, topBarBG, loginBackground, weightBackground;
 	
 	public static void initGFXRes() {
 		loadResources();
@@ -36,6 +40,7 @@ public class ResourceHandler {
 			background = ImageIO.read(c.getResource((BACKGORUND_PATH)));
 			topBarBG = ImageIO.read(c.getResource(TOP_BAR_PATH));
 			loginBackground = ImageIO.read(c.getResource(LOGIN_BACKGROUND_PATH));
+			weightBackground = ImageIO.read(c.getResource(WEIGHT_BACKGROUND_PATH));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,5 +57,9 @@ public class ResourceHandler {
 	
 	public static Image getLoginBackground() {
 		return loginBackground;
+	}
+	
+	public static Image getWeightBackground() {
+		return weightBackground;
 	}
 }
